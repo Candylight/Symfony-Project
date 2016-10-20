@@ -1,3 +1,5 @@
+.idea/
+
 
 # Created by https://www.gitignore.io/api/phpstorm,symfony
 
@@ -101,7 +103,7 @@ fabric.properties
 /composer.phar
 
 # Backup entities generated with doctrine:generate:entities command
-*/Entity/*~
+**/Entity/*~
 
 ### Symfony Patch ###
 #/web/css/
