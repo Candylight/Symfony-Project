@@ -19,5 +19,51 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
 {
-    
+    /**
+     * @Route("/event/create/{id}", name="new_event")
+     */
+    public function newEventAction(Event $event)
+    {
+        if($event == null)
+        {
+            $event = new Event;
+        }
+
+        $form = $this->createForm(EventType::class,$event, array('action'=>"save_event"));
+        return $this->render('newEvent.html.twig',array(
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
+     * @Route("/event/save/{id}", name="save_event")
+     */
+    public function saveEventAction(Event $event,Request $request)
+    {
+        if($event == null)
+        {
+            $event = new Event;
+        }
+
+        if($request->getMethod() == "POST")
+        {
+            $form = $this->createForm(EventType::class,$event);
+            $form->handleRequest($request);
+
+            if($form->isValid())
+            {
+
+            }
+        }
+
+        return $this->redirectToRoute('list_event');
+    }
+
+    /**
+     * @Route("/event/list/{id}", name="list_event")
+     */
+    public function eventListAction(User $user)
+    {
+
+    }
 }
