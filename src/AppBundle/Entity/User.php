@@ -51,7 +51,7 @@ class User extends BaseUser
     private $friends;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Event", mappedBy="friends")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="friends")
      */
     private $RFriends;
 
