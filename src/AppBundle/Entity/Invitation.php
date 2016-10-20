@@ -34,6 +34,13 @@ class Invitation
      */
     private $event;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\user")
+     * @ORM\JoinColumn(name="user", referencedColumnName="id")
+     */
+    private $user;
+
+
 
     /**
      * Get id
@@ -91,5 +98,29 @@ class Invitation
     public function getEvent()
     {
         return $this->event;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\user $user
+     *
+     * @return Invitation
+     */
+    public function setUser(\AppBundle\Entity\user $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\user
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -121,6 +122,20 @@ class Event
      */
     private $guest;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="owner", referencedColumnName="id")
+     */
+    private $owner;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="participant")
+     * @ORM\JoinTable(name="Participant",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="event_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $participant;
 
     /**
      * Get id
@@ -423,11 +438,11 @@ class Event
     /**
      * Set category
      *
-     * @param \AppBundle\Entity\EventCategory $category
+     * @param EventCategory $category
      *
      * @return Event
      */
-    public function setCategory(\AppBundle\Entity\EventCategory $category = null)
+    public function setCategory(EventCategory $category = null)
     {
         $this->category = $category;
 
@@ -437,7 +452,7 @@ class Event
     /**
      * Get category
      *
-     * @return \AppBundle\Entity\EventCategory
+     * @return EventCategory
      */
     public function getCategory()
     {
@@ -448,17 +463,17 @@ class Event
      */
     public function __construct()
     {
-        $this->invitations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->invitations = new ArrayCollection();
     }
 
     /**
      * Add invitation
      *
-     * @param \AppBundle\Entity\Invitation $invitation
+     * @param Invitation $invitation
      *
      * @return Event
      */
-    public function addInvitation(\AppBundle\Entity\Invitation $invitation)
+    public function addInvitation(Invitation $invitation)
     {
         $this->invitations[] = $invitation;
 
@@ -468,9 +483,9 @@ class Event
     /**
      * Remove invitation
      *
-     * @param \AppBundle\Entity\Invitation $invitation
+     * @param Invitation $invitation
      */
-    public function removeInvitation(\AppBundle\Entity\Invitation $invitation)
+    public function removeInvitation(Invitation $invitation)
     {
         $this->invitations->removeElement($invitation);
     }
@@ -488,11 +503,11 @@ class Event
     /**
      * Add guest
      *
-     * @param \AppBundle\Entity\Guest $guest
+     * @param Guest $guest
      *
      * @return Event
      */
-    public function addGuest(\AppBundle\Entity\Guest $guest)
+    public function addGuest(Guest $guest)
     {
         $this->guest[] = $guest;
 
@@ -504,7 +519,7 @@ class Event
      *
      * @param \AppBundle\Entity\Guest $guest
      */
-    public function removeGuest(\AppBundle\Entity\Guest $guest)
+    public function removeGuest(Guest $guest)
     {
         $this->guest->removeElement($guest);
     }
@@ -517,5 +532,63 @@ class Event
     public function getGuest()
     {
         return $this->guest;
+    }
+
+    /**
+     * Add participant
+     *
+     * @param \AppBundle\Entity\User $participant
+     *
+     * @return Event
+     */
+    public function addParticipant(User $participant)
+    {
+        $this->participant[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \AppBundle\Entity\User $participant
+     */
+    public function removeParticipant(User $participant)
+    {
+        $this->participant->removeElement($participant);
+    }
+
+    /**
+     * Get participant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
+    }
+
+    /**
+     * Set owner
+     *
+     * @param User $owner
+     *
+     * @return Event
+     */
+    public function setOwner(User $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return User
+     */
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }

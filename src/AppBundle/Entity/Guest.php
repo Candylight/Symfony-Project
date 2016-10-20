@@ -34,7 +34,6 @@ class Guest
      */
     private $event;
 
-
     /**
      * Get id
      *
