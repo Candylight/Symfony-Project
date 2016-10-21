@@ -36,6 +36,25 @@ class User extends BaseUser
      */
     private $firstname;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Event", mappedBy="participant")
+     */
+    private $participant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="RFriends")
+     * @ORM\JoinTable(name="Friends",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="friend_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $friends;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="friends")
+     */
+    private $RFriends;
+
 
     /**
      * Get id
@@ -94,5 +113,106 @@ class User extends BaseUser
     {
         return $this->firstname;
     }
-}
 
+    /**
+     * Add participant
+     *
+     * @param \AppBundle\Entity\Event $participant
+     *
+     * @return User
+     */
+    public function addParticipant(\AppBundle\Entity\Event $participant)
+    {
+        $this->participant[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \AppBundle\Entity\Event $participant
+     */
+    public function removeParticipant(\AppBundle\Entity\Event $participant)
+    {
+        $this->participant->removeElement($participant);
+    }
+
+    /**
+     * Get participant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
+    }
+
+    /**
+     * Add friend
+     *
+     * @param \AppBundle\Entity\User $friend
+     *
+     * @return User
+     */
+    public function addFriend(\AppBundle\Entity\User $friend)
+    {
+        $this->friends[] = $friend;
+
+        return $this;
+    }
+
+    /**
+     * Remove friend
+     *
+     * @param \AppBundle\Entity\User $friend
+     */
+    public function removeFriend(\AppBundle\Entity\User $friend)
+    {
+        $this->friends->removeElement($friend);
+    }
+
+    /**
+     * Get friends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFriends()
+    {
+        return $this->friends;
+    }
+
+    /**
+     * Add rFriend
+     *
+     * @param \AppBundle\Entity\Event $rFriend
+     *
+     * @return User
+     */
+    public function addRFriend(\AppBundle\Entity\Event $rFriend)
+    {
+        $this->RFriends[] = $rFriend;
+
+        return $this;
+    }
+
+    /**
+     * Remove rFriend
+     *
+     * @param \AppBundle\Entity\Event $rFriend
+     */
+    public function removeRFriend(\AppBundle\Entity\Event $rFriend)
+    {
+        $this->RFriends->removeElement($rFriend);
+    }
+
+    /**
+     * Get rFriends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRFriends()
+    {
+        return $this->RFriends;
+    }
+}
