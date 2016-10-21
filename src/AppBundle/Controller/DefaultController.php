@@ -18,4 +18,14 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
         ]);
     }
+    /**
+     * @Route("/dayevent", name="dayevent")
+     */
+    public function dayeventAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/daymap.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+        ]);
+    }
 }

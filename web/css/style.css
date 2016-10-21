@@ -3,36 +3,40 @@ body{
     margin-bottom: 0%;
     margin-left: 0%;
     margin-right: 0%;
-    font-family: Arial;
+    font-family: font;
 }
 
+@font-face {
+    font-family: font;
+    src: url("../fonts/basictitlefont.ttf");
+}
 
 
 
 .map{
     position: fixed;
     width:100%;
+    z-index: 2;
 }
 
-
-
-
-/****************************************************************************************************************/
-/*                                             EVENEMENTS MAP                                                   */
-/****************************************************************************************************************/
-
-.container-event-map{
+.content{
     position: fixed;
-    width:250px;
-    top:50px;
-    left: 15px;
+    z-index: 6;
+    top:0;
+    width: 100%;
+}
+
+/***************************************************************************************************************/
+/*                                             STYLE GLOBAL                                                    */
+/***************************************************************************************************************/
+.container{
     border-radius: 3px;
     border:1px solid silver;
     background-color: white;
     padding:15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
-    .container-event-map .title{
+    .container .title{
         font-size:150%;
         border-bottom: 1px solid silver;
         width:95%;
@@ -40,6 +44,55 @@ body{
         text-align: center;
         text-transform: uppercase;
     }
+    .container input[type=text], .container input[type=password]{
+        width:80%;
+        border:1px solid silver;
+        padding:10px;
+        margin-top:15px;
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 4px;
+        font-size: 120%;
+        font-family: font;
+        font-weight: bold;
+    }
+    .container input[type=submit]{
+        width: 150px;
+        background-color:#8fc123;
+        padding:10px;
+        border-radius: 4px;
+        margin-top:10px;
+        color:white;
+        border:none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size:120%;
+        font-family: font;
+    }
+
+/***************************************************************************************************************/
+/*                                             CONNEXION                                                       */
+/***************************************************************************************************************/
+.container-form-accueil{
+    margin:200px auto 0;
+    width:30%;
+    text-align: center;
+}
+    .container-form-accueil .title{
+        font-size:300%;
+        color:rgba(0,0,0,0.8);
+    }
+
+
+/****************************************************************************************************************/
+/*                                             EVENEMENTS MAP                                                   */
+/****************************************************************************************************************/
+
+.container-event-map{
+    width:250px;
+    position: relative;
+    top:50px;
+    left: 15px;
+}
     .container-event-map .top{
         padding:0 20px;
         margin-top: 15px;
