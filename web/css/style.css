@@ -4,6 +4,7 @@ body{
     margin-left: 0%;
     margin-right: 0%;
     font-family: font;
+    font-weight: bold;
 }
 
 @font-face {
@@ -16,7 +17,7 @@ body{
 .map{
     position: fixed;
     width:100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .content{
