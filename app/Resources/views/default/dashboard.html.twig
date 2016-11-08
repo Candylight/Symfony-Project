@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="part-left-fixed"></div>
+<div class="header">
+    Dashboard
+</div>
+<div class="content-dashboard">
+    <div class="part part_left">
+        <div class="item-dashboard">
+            Test 1
+        </div>
+        <div class="item-dashboard">
+            Test 1
+        </div>
+        <div class="item-dashboard active">
+            Test 1
+        </div>
+        <div class="item-dashboard">
+            Test 1
+        </div>
+    </div>
+    <div class="part part_right" id="content-dashboard">
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>
+{% endblock %}

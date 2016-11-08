@@ -70,6 +70,66 @@ body{
         font-family: font;
     }
 
+
+/****************************************************************************************************************/
+/*                                             DASHBOARD                                                        */
+/****************************************************************************************************************/
+
+.header{
+    padding:15px;
+    background-color:#8fc123;
+    color:white;
+    font-size:300%;
+    position: fixed;
+    width: 100%;
+    z-index: 6;
+}
+.part-left-fixed{
+    width: 30%;
+    height:100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    background-color:rgba(0,0,0,0.05);
+    border-right:1px solid silver;
+    z-index: 4;
+}
+.content-dashboard{
+    overflow: hidden;
+    padding-top: 75px;
+    position: relative;
+    z-index: 5;
+}
+    .content-dashboard .part{
+        float: left;
+        padding-top:30px;
+    }
+        .content-dashboard .part_left{
+            width: 30%;
+            user-select: none;
+        }
+            .content-dashboard .part_left .item-dashboard{
+                padding:10px;
+                text-align: center;
+                font-size: 200%;
+            }
+                .content-dashboard .part_left .item-dashboard:hover{
+                    padding:10px;
+                    background-color:rgba(0,0,0,0.025);
+                    cursor: pointer;
+                }
+                .content-dashboard .part_left .item-dashboard.active{
+                    background-color:white;
+                    position: relative;
+                    left:1px;
+                }
+        .content-dashboard .part_right{
+            width: 69%;
+        }
+
+
+
+
 /***************************************************************************************************************/
 /*                                             CONNEXION                                                       */
 /***************************************************************************************************************/
