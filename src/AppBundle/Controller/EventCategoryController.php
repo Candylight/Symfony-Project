@@ -30,7 +30,7 @@ class EventCategoryController extends Controller
     }
 
     /**
-     * @Route("/eventCategory/new/{id}", name="newEventCategory", requirements={"id": "\d+"})
+     * @Route("/eventCategory/new/{id}", name="newEventCategoryTab", requirements={"id": "\d+"})
      *
      * @param integer $id
      *
@@ -49,9 +49,9 @@ class EventCategoryController extends Controller
             "action"=> $this->generateUrl("saveEventCategory",array("id"=>$eventCategory->getId()))
         ));
 
-        return $this->render(":eventCategory:newEventCategory.html.twig",array(
-            "form" => $form->createView()
-        ));
+        return new Response($this->renderView(':eventCategory:newEventCategoryTab.html.twig', array(
+                "form" => $form
+            )));
     }
 
     /**
