@@ -1,0 +1,4 @@
+eventCategory:
+    noCategory: 'Aucune catégorie renseignée'
+    name: 'Nom'
+    color: 'Couleur'

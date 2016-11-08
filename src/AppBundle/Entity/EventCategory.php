@@ -29,6 +29,13 @@ class EventCategory
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=500)
+     */
+    private $color;
+
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="Category")
      */
     private $event;
@@ -107,5 +114,29 @@ class EventCategory
     public function getEvent()
     {
         return $this->event;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return EventCategory
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 }
