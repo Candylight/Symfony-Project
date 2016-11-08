@@ -13,8 +13,18 @@ class EventCategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')
-            ->add('color')
+        $builder->add('name','Symfony\Component\Form\Extension\Core\Type\TextType',array(
+            "label" => false,
+            "attr" => array(
+                "placeholder" => "eventCategory.name"
+            )
+        ))
+            ->add('color','Symfony\Component\Form\Extension\Core\Type\TextType',array(
+                "label" => false,
+                "attr" => array(
+                    "placeholder" => "eventCategory.color"
+                )
+            ))
         ;
     }
     
