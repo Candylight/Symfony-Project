@@ -30,7 +30,7 @@ class EventController extends Controller
         }
 
         $form = $this->createForm(EventType::class,$event, array('action'=>"save_event"));
-        return $this->render('newEvent.html.twig',array(
+        return $this->render('event/newEvent.html.twig',array(
             'form' => $form->createView()
         ));
     }

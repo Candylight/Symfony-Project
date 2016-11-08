@@ -22,17 +22,6 @@ class DefaultController extends Controller
      */
     public function dayeventAction(Request $request)
     {
-        return $this->render('default/daymap.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
-    }
-    /**
-     * @Route("/dashboard", name="dashboard")
-     */
-    public function dashboardAction(Request $request)
-    {
-        return $this->render('default/dashboard.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        return $this->render('map/daymap.html.twig');
     }
 }
