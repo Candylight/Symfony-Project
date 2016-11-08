@@ -7,13 +7,13 @@
 </div>
 <div class="content-dashboard">
     <div class="part part_left">
-        <div class="item-dashboard">
-            Test 1
+        <div class="item-dashboard active" data-path="{{ path('dashboardEventTab') }}">
+            Mes événements
+        </div>
+        <div class="item-dashboard" data-path="{{ path('dashboardNewEventTab') }}">
+            Créer un événement
         </div>
         <div class="item-dashboard">
-            Test 1
-        </div>
-        <div class="item-dashboard active">
             Test 1
         </div>
         <div class="item-dashboard">
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="part part_right" id="content-dashboard">
-        {{ render(controller(NamespaceNameBundle:Controller:Action, {})) }}
+        {{ render(controller("AppBundle:Dashboard:eventTab")) }}
     </div>
 </div>
 
