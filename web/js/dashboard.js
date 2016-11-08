@@ -11,6 +11,7 @@ if(document.location.hash != null){
       var page_name = $(this).data("pagename");
       if( page_name == hash ){
          var path = $(this).data("path");
+         activeItem($(this));
          changeTab(path,page_name);
       }
    });
@@ -26,11 +27,15 @@ if(document.location.hash != null){
 /*******************************************************************************/
 
 $(".item-dashboard").click( function(){
-   $(".item-dashboard").removeClass("active");
-   $(this).addClass("active");
+   activeItem($(this));
    changeTab($(this).data('path'),$(this).data('pagename'));
 });
 
+
+function activeItem(elm){
+   $(".item-dashboard").removeClass("active");
+   elm.addClass("active");
+}
 
 function changeTab(path,page_name)
 {
