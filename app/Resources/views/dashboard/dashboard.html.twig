@@ -8,20 +8,17 @@
 <div class="content-dashboard">
     <div class="part part_left">
         <div class="item-dashboard active" data-path="{{ path('dashboardEventTab') }}">
-            Mes événements
+            Mes evenements
         </div>
         <div class="item-dashboard" data-path="{{ path('dashboardNewEventTab') }}">
-            Créer un événement
-        </div>
-        <div class="item-dashboard">
-            Test 1
-        </div>
-        <div class="item-dashboard">
-            Test 1
+            Creer un evenement
         </div>
     </div>
-    <div class="part part_right" id="content-dashboard">
-        {{ render(controller("AppBundle:Dashboard:eventTab")) }}
+    <div class="part part_right">
+        <img src="{{ asset('img/icones/loading-ajax.gif') }}" class="loading-icon" alt="">
+        <div id="content-dashboard">
+            {{ render(controller("AppBundle:Dashboard:eventTab")) }}
+        </div>
     </div>
 </div>
 
