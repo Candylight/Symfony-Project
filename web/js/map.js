@@ -2,8 +2,11 @@
 
 document.getElementById("map").style.height= document.documentElement.clientHeight+"px";
 var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":60}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":30}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#96de6b"},{"lightness":40}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#b6c54c"},{"lightness":40},{"saturation":-40}]},{}];
-var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
+
+
+var map = null;
+var image = '../img/icones/cursor_map.png';
+
 function initMap() {
 
     // Create a new StyledMapType object, passing it the array of styles,
@@ -20,10 +23,22 @@ function initMap() {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         }
     };
-    var map = new google.maps.Map(document.getElementById('map'),
+    map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
 
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
+
+
+    for ( i = 0 ; i < markers.length ; i++){
+        latLng = new google.maps.LatLng(markers[i][0], markers[i][1]);
+        var marker = new google.maps.Marker({
+            position: latLng,
+            title:"Hello World!",
+            visible: true,
+            icon: image
+        });
+        marker.setMap(map);
+    }
 }
