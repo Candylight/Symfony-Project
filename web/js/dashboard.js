@@ -44,12 +44,22 @@ function changeTab(path,page_name)
 
    $.ajax({
       url: path,
-      method: "POST",
-      dataType: "html"
+      method: "POST"
    }).done(function(data) {
       document.location.hash = page_name;
       $('#content-dashboard').html(data);
       $('.loading-icon').removeClass("active");
+   });
+}
+
+function searchUser(path)
+{
+   $.ajax({
+      url: path,
+      method: "POST",
+      data: {keyword: $('#userKeyword').val()}
+   }).done(function(data) {
+     $('#usersContainer').html(data);
    });
 }
 

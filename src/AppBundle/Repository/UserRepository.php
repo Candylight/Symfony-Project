@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByKeyword($keyword)
+    {
+        $qb = $this->createQueryBuilder('u');
+
+        $qb->where($qb->expr()->like('u.username',':keyword'));
+        $qb->orWhere($qb->expr()->like('u.name',':keyword'));
+        $qb->orWhere($qb->expr()->like('u.firstname',':keyword'));
+
+        $qb->setParameter(':keyword','%'.$keyword.'%');
+
+        return $qb->getQuery()->getResult();
+    }
 }

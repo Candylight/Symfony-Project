@@ -25,9 +25,9 @@ class EventCategoryController extends Controller
      */
     public function listEventCategoryAction()
     {
-        return $this->render(":eventCategory:listEventCategory.html.twig",array(
+        return new Response($this->renderView(":eventCategory:listEventCategory.html.twig",array(
             "categories" => $this->getDoctrine()->getRepository("AppBundle:EventCategory")->findAll()
-        ));
+        )));
     }
 
     /**
