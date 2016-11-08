@@ -29,7 +29,7 @@ class Guest
     private $mail;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Event")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Event", inversedBy="guest")
      * @ORM\JoinColumn(name="event", referencedColumnName="id")
      */
     private $event;
