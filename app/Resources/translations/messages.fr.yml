@@ -2,3 +2,10 @@ eventCategory:
     noCategory: 'Aucune catégorie renseignée'
     name: 'Nom'
     color: 'Couleur'
+
+user:
+    findUser:
+        search: 'Rechercher un utilisateur'
+        noUser: 'Aucun utilisateur trouvé'
+
+validate : 'Valider'
