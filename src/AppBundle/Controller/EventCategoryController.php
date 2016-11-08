@@ -16,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class EventCategoryController extends Controller
 {
@@ -50,7 +51,7 @@ class EventCategoryController extends Controller
         ));
 
         return new Response($this->renderView(':eventCategory:newEventCategoryTab.html.twig', array(
-                "form" => $form
+                "form" => $form->createView()
             )));
     }
 

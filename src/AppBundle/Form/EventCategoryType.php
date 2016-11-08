@@ -15,7 +15,6 @@ class EventCategoryType extends AbstractType
     {
         $builder->add('name')
             ->add('color')
-            ->add('valid','Symfony\Component\Form\Extension\Core\Type\SubmitType')
         ;
     }
     
