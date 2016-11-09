@@ -12,12 +12,9 @@
 
     <div class="content content-accueil">
         <form action="{{ path("fos_user_security_check") }}"  class="container container-form-accueil"method="post">
-            <div class="title">
-                Connexion
-            </div>
 
             {% if error %}
-                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
             {% if csrf_token %}
