@@ -19,6 +19,9 @@
         <div class="item-dashboard" data-pagename="search_user" data-path="{{ path('findUser') }}">
             Utilisateurs
         </div>
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
     </div>
     <div class="part part_right">
         <img src="{{ asset('img/icones/loading-ajax.gif') }}" class="loading-icon" alt="">

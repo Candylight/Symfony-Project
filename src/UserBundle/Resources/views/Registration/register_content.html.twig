@@ -1,8 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--  APPEL MAP -->
+    <div class="map" id="map"></div>
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap"
+            async defer></script>
+    <!--  FIN APPEL MAP -->
+
+    <div class="content content-accueil">
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register container container-form-accueil'}}) }}
+
+            <div class="title">
+                Connexion
+            </div>
+            {{ form_widget(form) }}
+            <div>
+                <input type="submit" value="{{ 'registration.submit'|trans }}" />
+            </div>
+        {{ form_end(form) }}
     </div>
-{{ form_end(form) }}
+{% endblock %}

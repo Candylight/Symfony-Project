@@ -46,7 +46,7 @@ body{
         text-align: center;
         text-transform: uppercase;
     }
-    input[type=text], .container input[type=password]{
+    input[type=text], .container input[type=password], .container input[type=email]{
         width:80%;
         border:1px solid silver;
         padding:10px;
