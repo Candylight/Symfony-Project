@@ -13,15 +13,19 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        ));
     }
     /**
      * @Route("/dayevent", name="dayevent")
      */
     public function dayeventAction(Request $request)
     {
-        return $this->render('map/daymap.html.twig');
+        $events = $this->getDoctrine()->getRepository("AppBundle:Event")->findAll();
+
+        return $this->render('map/daymap.html.twig', array(
+            'events' => $events
+        ));
     }
 }
