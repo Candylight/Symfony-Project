@@ -56,7 +56,7 @@ body{
         font-family: font;
         font-weight: bold;
     }
-    input[type=submit]{
+    .button, input[type=submit]{
         width: 150px;
         background-color:#8fc123;
         padding:10px;
@@ -160,15 +160,19 @@ body{
 /***************************************************************************************************************/
 /*                                             CONNEXION                                                       */
 /***************************************************************************************************************/
-.container-form-accueil{
-    margin:200px auto 0;
-    width:30%;
-    text-align: center;
+.content.content-accueil {
+    width: 100%;
+    height:100%;
 }
-    .container-form-accueil .title{
-        font-size:300%;
-        color:rgba(0,0,0,0.8);
+    .container-form-accueil{
+        margin:200px auto 0;
+        width:30%;
+        text-align: center;
     }
+        .container-form-accueil .title{
+            font-size:300%;
+            color:rgba(0,0,0,0.8);
+        }
 
 
 /****************************************************************************************************************/
