@@ -3,7 +3,7 @@
         <span class="name">
             {{ user.username }}
         </span>
-        <span class="add-remove-button" onclick="addRemoveUser('{{ path("searchUser") }}',{{ user.id }})">
+        <span class="add-remove-button" onclick="addRemoveUser('{{ path("addFriend",{'id',user.id}) }}')">
             <img src="{{ asset('img/icones/loading_add_remove_user.gif') }}" class="loading-icon-add-remove icon-add-remove-{{ user.id }}" alt="">
             <span class="text-add-remove text-add-remove-{{ user.id }}">
                 Ajouter

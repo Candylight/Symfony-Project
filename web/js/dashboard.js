@@ -52,40 +52,35 @@ function changeTab(path,page_name)
    });
 }
 
-
-
-      /****************************************************/
-      /*                  RECHERCHE USER                  */
-      /****************************************************/
-      function searchUser(path)
-      {
-         $('.loading-icon-research').addClass("active");
-         $('#result-user-research').html("");
-         $.ajax({
-            url: path,
-            method: "POST",
-            data: {keyword: $('#userKeyword').val()}
-         }).done(function(data) {
-            $('#result-user-research').html(data);
-            $('.loading-icon-research').removeClass("active");
-         });
-      }
-      function addRemoveUser(path,id)
-      {
-         $('.icon-add-remove-'+id).addClass("active");
-         $('.text-add-remove-'+id).addClass("active");
-         /*
-         $('#result-user-research').html("");
-         $.ajax({
-            url: path,
-            method: "POST",
-            data: {keyword: $('#userKeyword').val()}
-         }).done(function(data) {
-            $('#result-user-research').html(data);
-            $('.loading-icon-research').removeClass("active");
-         });
-         */
-      }
+/****************************************************/
+/*                  RECHERCHE USER                  */
+/****************************************************/
+function searchUser(path)
+{
+   $('.loading-icon-research').addClass("active");
+   $('#result-user-research').html("");
+   $.ajax({
+      url: path,
+      method: "POST",
+      data: {keyword: $('#userKeyword').val()}
+   }).done(function(data) {
+      $('#result-user-research').html(data);
+      $('.loading-icon-research').removeClass("active");
+   });
+}
+function addRemoveUser(path)
+{
+   $('.icon-add-remove-'+id).addClass("active");
+   $('.text-add-remove-'+id).addClass("active");
+   $('#result-user-research').html("");
+   $.ajax({
+      url: path,
+      method: "POST"
+   }).done(function(data) {
+      $('#result-user-research').html(data);
+      $('.loading-icon-research').removeClass("active");
+   });
+}
 
 
 

@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,5 +40,24 @@ class UserController extends Controller
         return new Response($this->renderView("user/searchUser.html.twig",array(
             "users" => $users
         )));
+    }
+
+    /**
+     * @Route("/addFriend/{id}", name="addFriend")
+     *
+     * @param User $friend
+     */
+    public function addFriendAction($friend)
+    {
+        /**
+         * @param User $currentUser
+         */
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+        $currentUser->addFriend($friend);
+        $friend->addFriend($currentUser);
+
+        $this->getDoctrine()->getManager()->persist($currentUser);
+        $this->getDoctrine()->getManager()->persist($friend);
+        $this->getDoctrine()->getManager()->flush();
     }
 }
