@@ -19,63 +19,68 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class RegistrationFormType extends AbstractType
 {
     /**
-     * @var string
-     */
-    private $class;
-
-    /**
-     * @param string $class The User class name
-     */
-    public function __construct($class)
-    {
-        $this->class = $class;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+                'label' => false,
+                'translation_domain' => 'FOSUserBundle',
+                'attr' => array(
+                    'placeholder' => 'form.email'
+                )
+            ))
+            ->add('username', null,
+                array(
+                    'label' => false,
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr' => array(
+                        'placeholder' => 'form.username'
+                    )
+                ))
+            ->add('name', null,
+                array(
+                    'label' => false,
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr' => array(
+                        'placeholder' => 'form.name'
+                    )
+                ))
+            ->add('firstname', null,
+                array(
+                    'label' => false,
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr' => array(
+                        'placeholder' => 'form.firstname'
+                    )
+                ))
             ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
                 'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
                 'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
+                'first_options' => array(
+                    'label' => false,
+                    'attr' => array(
+                        'placeholder' => 'form.password'
+                    )
+                ),
+                'second_options' => array(
+                    'label' => false,
+                    'attr' => array(
+                        'placeholder' => 'form.password_confirmation'
+                    )
+                ),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getParent()
     {
-        $resolver->setDefaults(array(
-            'data_class' => $this->class,
-            'csrf_token_id' => 'registration',
-            // BC for SF < 2.8
-            'intention' => 'registration',
-        ));
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
-
-    // BC for SF < 3.0
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->getBlockPrefix();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix()
     {
-        return 'fos_user_registration';
+        return 'app_user_registration';
     }
 }
