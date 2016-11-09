@@ -1,8 +1,14 @@
 {% for user in users %}
-    <div class="user">
-        <div class="id">{{ user.id }}</div>
-        <div class="name">{{ user.username }}</div>
-        <div class="email">{{ user.email }}</div>
+    <div class="item-result-research-user">
+        <span class="name">
+            {{ user.username }}
+        </span>
+        <span class="add-remove-button" onclick="addRemoveUser('{{ path("searchUser") }}',{{ user.id }})">
+            <img src="{{ asset('img/icones/loading_add_remove_user.gif') }}" class="loading-icon-add-remove icon-add-remove-{{ user.id }}" alt="">
+            <span class="text-add-remove text-add-remove-{{ user.id }}">
+                Ajouter
+            </span>
+        </span>
     </div>
 {% else %}
     {{ "user.findUser.noUser"|trans }}

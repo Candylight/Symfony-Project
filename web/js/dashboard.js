@@ -60,6 +60,7 @@ function changeTab(path,page_name)
       function searchUser(path)
       {
          $('.loading-icon-research').addClass("active");
+         $('#result-user-research').html("");
          $.ajax({
             url: path,
             method: "POST",
@@ -69,6 +70,24 @@ function changeTab(path,page_name)
             $('.loading-icon-research').removeClass("active");
          });
       }
+      function addRemoveUser(path,id)
+      {
+         $('.icon-add-remove-'+id).addClass("active");
+         $('.text-add-remove-'+id).addClass("active");
+         /*
+         $('#result-user-research').html("");
+         $.ajax({
+            url: path,
+            method: "POST",
+            data: {keyword: $('#userKeyword').val()}
+         }).done(function(data) {
+            $('#result-user-research').html(data);
+            $('.loading-icon-research').removeClass("active");
+         });
+         */
+      }
+
+
 
 
 

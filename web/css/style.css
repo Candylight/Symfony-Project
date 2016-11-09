@@ -170,6 +170,44 @@ body{
                 .loading-icon-research.active{
                     display: inline-block;
                 }
+            #result-user-research .item-result-research-user{
+                padding:7px;
+                background-color: rgba(0,0,0,0.05);
+                border-radius: 4px;
+                width: 50%;
+                margin:10px auto 0;
+                cursor: pointer;
+            }
+                #result-user-research .item-result-research-user:hover{
+                    background-color: rgba(0,0,0,0.07);
+                }
+
+                #result-user-research .item-result-research-user .name{
+                    display: inline-block;
+                    width: 75%;
+                }
+                #result-user-research .item-result-research-user .add-remove-button{
+                    display: inline-block;
+                    width: 20%;
+                    background-color:white;
+                    border-radius: 4px;
+                    border:1px solid transparent;
+                }
+                    #result-user-research .item-result-research-user .add-remove-button:hover{
+                        border:1px solid rgba(0,0,0,0.3);
+                    }
+                    #result-user-research .item-result-research-user .loading-icon-add-remove{
+                        display: none;
+                    }
+                        #result-user-research .item-result-research-user .loading-icon-add-remove.active{
+                            display: inline-block;
+                        }
+                    #result-user-research .item-result-research-user .text-add-remove{
+                        display: inline-block;
+                    }
+                        #result-user-research .item-result-research-user .text-add-remove.active{
+                            display: none;
+                        }
 
 
 
