@@ -5,11 +5,12 @@ body{
     margin-right: 0%;
     font-family: font;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 @font-face {
     font-family: font;
-    src: url("../fonts/basictitlefont.ttf");
+    src: url("../fonts/printc.TTF");
 }
 
 
@@ -55,6 +56,8 @@ body{
         font-size: 120%;
         font-family: font;
         font-weight: bold;
+        user-select: none;
+        text-transform: uppercase;
     }
     .button, input[type=submit]{
         width: 150px;
@@ -68,7 +71,12 @@ body{
         text-transform: uppercase;
         font-size:120%;
         font-family: font;
+        user-select: none;
+        text-transform: uppercase;
     }
+        .button:hover, input[type=submit]:hover{
+            background-color:#729c17;
+        }
 
 
 /****************************************************************************************************************/
@@ -151,9 +159,17 @@ body{
 
 
         /*******************************************************************************/
-        /*                           *****                                 */
+        /*                                 RECHERCHE                                   */
         /*******************************************************************************/
-
+        #result-user-research{
+            margin-top:15px;
+        }
+            .loading-icon-research{
+                display: none;
+            }
+                .loading-icon-research.active{
+                    display: inline-block;
+                }
 
 
 

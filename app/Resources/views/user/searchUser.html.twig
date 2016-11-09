@@ -1,5 +1,9 @@
 {% for user in users %}
-    {{ user.username }}
+    <div class="user">
+        <div class="id">{{ user.id }}</div>
+        <div class="name">{{ user.username }}</div>
+        <div class="email">{{ user.email }}</div>
+    </div>
 {% else %}
     {{ "user.findUser.noUser"|trans }}
 {% endfor %}

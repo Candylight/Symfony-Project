@@ -52,16 +52,23 @@ function changeTab(path,page_name)
    });
 }
 
-function searchUser(path)
-{
-   $.ajax({
-      url: path,
-      method: "POST",
-      data: {keyword: $('#userKeyword').val()}
-   }).done(function(data) {
-     $('#usersContainer').html(data);
-   });
-}
+
+
+      /****************************************************/
+      /*                  RECHERCHE USER                  */
+      /****************************************************/
+      function searchUser(path)
+      {
+         $('.loading-icon-research').addClass("active");
+         $.ajax({
+            url: path,
+            method: "POST",
+            data: {keyword: $('#userKeyword').val()}
+         }).done(function(data) {
+            $('#result-user-research').html(data);
+            $('.loading-icon-research').removeClass("active");
+         });
+      }
 
 
 
