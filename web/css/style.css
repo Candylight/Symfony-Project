@@ -133,6 +133,12 @@ body{
                     border-bottom: 1px solid silver;
                     border-top: 1px solid silver;
                 }
+            .content-dashboard .part_left .deconnexion{
+                display: block;
+                margin: 20px auto 0;
+                text-decoration: none;
+                text-align: center;
+            }
         .content-dashboard .part_right{
             width: 69%;
             text-align: center;
