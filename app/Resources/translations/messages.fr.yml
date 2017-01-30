@@ -9,3 +9,11 @@ user:
         noUser: 'Aucun utilisateur trouvé'
 
 validate : 'Valider'
+dashboardAccessButton: 'Accéder au dashboard'
+
+event:
+    create:
+        description: 'Description'
+        dateStart: 'Date de début'
+        dateEnd: 'Date de fin'
+        category: 'Catégorie'

@@ -31,14 +31,17 @@ class UserController extends Controller
     {
         $keyword = $request->get('keyword',null);
 
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+
         $users = array();
         if($keyword != null && $keyword != "")
         {
-            $users = $this->getDoctrine()->getRepository("AppBundle:User")->findByKeyword($keyword);
+            $users = $this->getDoctrine()->getRepository("AppBundle:User")->findByKeyword($keyword,$currentUser->getId());
         }
 
         return new Response($this->renderView("user/searchUser.html.twig",array(
-            "users" => $users
+            "users" => $users,
+            "currentUser" => $currentUser
         )));
     }
 
@@ -46,18 +49,49 @@ class UserController extends Controller
      * @Route("/addFriend/{id}", name="addFriend")
      *
      * @param User $friend
+     *
+     * @return string
      */
-    public function addFriendAction($friend)
+    public function addFriendAction(User $friend)
     {
-        /**
-         * @param User $currentUser
-         */
         $currentUser = $this->get('security.token_storage')->getToken()->getUser();
-        $currentUser->addFriend($friend);
-        $friend->addFriend($currentUser);
+        if(!$currentUser->isFriend($friend))
+        {
+            $currentUser->addFriend($friend);
+            $friend->addFriend($currentUser);
 
-        $this->getDoctrine()->getManager()->persist($currentUser);
-        $this->getDoctrine()->getManager()->persist($friend);
-        $this->getDoctrine()->getManager()->flush();
+            $this->getDoctrine()->getManager()->persist($currentUser);
+            $this->getDoctrine()->getManager()->persist($friend);
+            $this->getDoctrine()->getManager()->flush();
+
+            return new Response('ok');
+        }
+
+        return new Response('nok');
+    }
+
+    /**
+     * @Route("/removeFriend/{id}", name="removeFriend")
+     *
+     * @param User $friend
+     *
+     * @return string
+     */
+    public function removeFriendAction(User $friend)
+    {
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+        if($currentUser->isFriend($friend))
+        {
+            $currentUser->removeFriend($friend);
+            $friend->removeFriend($currentUser);
+
+            $this->getDoctrine()->getManager()->persist($currentUser);
+            $this->getDoctrine()->getManager()->persist($friend);
+            $this->getDoctrine()->getManager()->flush();
+
+            return new Response('ok');
+        }
+
+        return new Response('nok');
     }
 }

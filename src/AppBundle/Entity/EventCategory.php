@@ -36,7 +36,7 @@ class EventCategory
     private $color;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="Category")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="category")
      */
     private $event;
 

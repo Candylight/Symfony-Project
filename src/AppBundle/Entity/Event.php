@@ -107,7 +107,7 @@ class Event
     private $postalCode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EventCategory")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EventCategory", inversedBy="event")
      * @ORM\JoinColumn(name="category", referencedColumnName="id")
      */
     private $category;
@@ -464,6 +464,10 @@ class Event
     public function __construct()
     {
         $this->invitations = new ArrayCollection();
+        $this->dateAdd = new \DateTime();
+        $this->dateUpd = new \DateTime();
+        $this->dateStart = new \DateTime();
+        $this->dateEnd = new \DateTime();
     }
 
     /**

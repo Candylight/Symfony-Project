@@ -9,6 +9,8 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Event;
+use AppBundle\Form\EventType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,6 +46,10 @@ class DashboardController extends Controller
      */
     public function newEventTabAction(Request $request)
     {
-        return new Response($this->renderView(':dashboard:newEventTab.html.twig'));
+        $form = $this->createForm(EventType::class,new Event(), array('action'=>"save_event"));
+
+        return new Response($this->renderView('event/newEvent.html.twig',array(
+            'form' => $form->createView()
+        )));
     }
 }
