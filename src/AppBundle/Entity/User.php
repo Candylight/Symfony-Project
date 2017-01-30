@@ -215,4 +215,15 @@ class User extends BaseUser
     {
         return $this->RFriends;
     }
+
+    public function isFriend($user)
+    {
+        foreach ($this->getFriends() as $friend) {
+            if($friend->getId() == $user->getId())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

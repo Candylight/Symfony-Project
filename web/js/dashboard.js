@@ -68,7 +68,7 @@ function searchUser(path)
       $('.loading-icon-research').removeClass("active");
    });
 }
-function addRemoveUser(path,id)
+function addUser(path,id)
 {
    $('.icon-add-remove-'+id).addClass("active");
    $('.text-add-remove-'+id).addClass("active");
@@ -78,12 +78,45 @@ function addRemoveUser(path,id)
    }).done(function(data) {
       $('.icon-add-remove-'+id).removeClass("active");
       $('.text-add-remove-'+id).removeClass("active");
+      if(data == "ok")
+      {
+          $('#userSearch'+id).addClass('friendAdded');
+          $('#userSearch'+id).html('Ajouté');
+          $('#userSearch'+id).attr('onClick','');
+      }
+      else
+      {
+         alert('Une erreur est survenue');
+      }
    });
 }
 
+/****************************************************/
+/*                  SAUVEGARDE D'EVENEMENT          */
+/****************************************************/
 
-
-
+function saveEvent(id)
+{
+    $('.icon-add-remove-'+id).addClass("active");
+    $('.text-add-remove-'+id).addClass("active");
+    $.ajax({
+        url: path,
+        method: "POST"
+    }).done(function(data) {
+        $('.icon-add-remove-'+id).removeClass("active");
+        $('.text-add-remove-'+id).removeClass("active");
+        if(data == "ok")
+        {
+            $('#userSearch'+id).addClass('friendAdded');
+            $('#userSearch'+id).html('Ajouté');
+            $('#userSearch'+id).attr('onClick','');
+        }
+        else
+        {
+            alert('Une erreur est survenue');
+        }
+    });
+}
 
 
 

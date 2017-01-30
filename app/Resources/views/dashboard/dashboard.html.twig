@@ -13,9 +13,11 @@
         <div class="item-dashboard" data-pagename="nouveau" data-path="{{ path('dashboardNewEventTab') }}">
             Creer un evenement
         </div>
-        <div class="item-dashboard" data-pagename="category_new" data-path="{{ path('newEventCategoryTab') }}">
-            Gerer les categories
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="item-dashboard" data-pagename="category_new" data-path="{{ path('newEventCategoryTab') }}">
+                Gerer les categories
+            </div>
+        {% endif %}
         <div class="item-dashboard" data-pagename="search_user" data-path="{{ path('findUser') }}">
             Utilisateurs
         </div>

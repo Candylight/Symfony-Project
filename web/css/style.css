@@ -1,4 +1,4 @@
-body{
+body {
     margin-top: 0%;
     margin-bottom: 0%;
     margin-left: 0%;
@@ -13,263 +13,304 @@ body{
     src: url("../fonts/printc.TTF");
 }
 
-
-
-.map{
+.map {
     position: fixed;
-    width:100%;
+    width: 100%;
     z-index: 3;
 }
 
-.content{
+.content {
     position: fixed;
     z-index: 6;
-    top:0;
+    top: 0;
     width: 300px;
 }
 
 /***************************************************************************************************************/
 /*                                             STYLE GLOBAL                                                    */
 /***************************************************************************************************************/
-.container{
+.container {
     border-radius: 3px;
-    border:1px solid silver;
+    border: 1px solid silver;
     background-color: white;
-    padding:15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
-    .container .title{
-        font-size:150%;
-        border-bottom: 1px solid silver;
-        width:95%;
-        margin:auto;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    input[type=text], .container input[type=password], .container input[type=email]{
-        width:80%;
-        border:1px solid silver;
-        padding:10px;
-        margin-top:15px;
-        background-color: rgba(0,0,0,0.1);
-        border-radius: 4px;
-        font-size: 120%;
-        font-family: font;
-        font-weight: bold;
-        user-select: none;
-        text-transform: uppercase;
-    }
-    .button, input[type=submit]{
-        width: 150px;
-        background-color:#8fc123;
-        padding:10px;
-        border-radius: 4px;
-        margin-top:10px;
-        color:white;
-        border:none;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-size:120%;
-        font-family: font;
-        user-select: none;
-        text-transform: uppercase;
-    }
-        .button:hover, input[type=submit]:hover{
-            background-color:#729c17;
-        }
 
+.container .title {
+    font-size: 150%;
+    border-bottom: 1px solid silver;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input[type=text], .container input[type=password], .container input[type=email] {
+    width: 80%;
+    border: 1px solid silver;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 120%;
+    font-family: font;
+    font-weight: bold;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.button, input[type=submit] {
+    width: 150px;
+    background-color: #8fc123;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 120%;
+    font-family: font;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.button:hover, input[type=submit]:hover {
+    background-color: #729c17;
+}
+
+#accessDashboardButton
+{
+
+}
 
 /****************************************************************************************************************/
 /*                                             DASHBOARD                                                        */
 /****************************************************************************************************************/
 
-.header{
-    padding:15px;
-    background-color:#8fc123;
-    color:white;
-    font-size:300%;
+.header {
+    padding: 15px;
+    background-color: #8fc123;
+    color: white;
+    font-size: 300%;
     position: fixed;
     width: 100%;
     z-index: 6;
 }
-.part-left-fixed{
+
+.part-left-fixed {
     width: 30%;
-    height:100%;
+    height: 100%;
     position: fixed;
-    top:0px;
-    left:0px;
-    background-color:rgba(0,0,0,0.05);
-    border-right:1px solid silver;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-right: 1px solid silver;
     z-index: 4;
 }
-.content-dashboard{
+
+.content-dashboard {
     overflow: hidden;
     padding-top: 75px;
     position: relative;
     z-index: 5;
 }
-    .content-dashboard .part{
-        float: left;
-        padding-top:30px;
-    }
-        .content-dashboard .part_left{
-            width: 30%;
-            user-select: none;
-        }
-            .content-dashboard .part_left .item-dashboard{
-                padding:10px;
-                text-align: center;
-                font-size: 200%;
-            }
-                .content-dashboard .part_left .item-dashboard:hover{
-                    padding:10px;
-                    background-color:rgba(0,0,0,0.025);
-                    cursor: pointer;
-                }
-                .content-dashboard .part_left .item-dashboard.active{
-                    background-color:white;
-                    position: relative;
-                    left:1px;
-                    border-bottom: 1px solid silver;
-                    border-top: 1px solid silver;
-                }
-            .content-dashboard .part_left .deconnexion{
-                display: block;
-                margin: 20px auto 0;
-                text-decoration: none;
-                text-align: center;
-            }
-        .content-dashboard .part_right{
-            width: 69%;
-            text-align: center;
-        }
-            .content-dashboard .part_right .loading-icon{
-                display: none;
-            }
-                .content-dashboard .part_right .loading-icon.active{
-                    display: inline-block;
-                }
-            .content-dashboard .part_right .title{
-                text-transform: uppercase;
-                font-size:250%;
-            }
 
-        /*******************************************************************************/
-        /*                            TOUS LES EVENTS                                  */
-        /*******************************************************************************/
+.content-dashboard .part {
+    float: left;
+    padding-top: 30px;
+}
 
+.content-dashboard .part_left {
+    width: 30%;
+    user-select: none;
+}
 
-        /*******************************************************************************/
-        /*                            CREER EVENEMENT                                  */
-        /*******************************************************************************/
+.content-dashboard .part_left .item-dashboard {
+    padding: 10px;
+    text-align: center;
+    font-size: 200%;
+}
 
+.content-dashboard .part_left .item-dashboard:hover {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.025);
+    cursor: pointer;
+}
 
-        /*******************************************************************************/
-        /*                                 RECHERCHE                                   */
-        /*******************************************************************************/
-        #result-user-research{
-            margin-top:15px;
-        }
-            .loading-icon-research{
-                display: none;
-            }
-                .loading-icon-research.active{
-                    display: inline-block;
-                }
-            #result-user-research .item-result-research-user{
-                padding:7px;
-                background-color: rgba(0,0,0,0.05);
-                border-radius: 4px;
-                width: 50%;
-                margin:10px auto 0;
-                cursor: pointer;
-            }
-                #result-user-research .item-result-research-user:hover{
-                    background-color: rgba(0,0,0,0.07);
-                }
+.content-dashboard .part_left .item-dashboard.active {
+    background-color: white;
+    position: relative;
+    left: 1px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+}
 
-                #result-user-research .item-result-research-user .name{
-                    display: inline-block;
-                    width: 75%;
-                }
-                #result-user-research .item-result-research-user .add-remove-button{
-                    display: inline-block;
-                    width: 20%;
-                    background-color:white;
-                    border-radius: 4px;
-                    border:1px solid transparent;
-                }
-                    #result-user-research .item-result-research-user .add-remove-button:hover{
-                        border:1px solid rgba(0,0,0,0.3);
-                    }
-                    #result-user-research .item-result-research-user .loading-icon-add-remove{
-                        display: none;
-                    }
-                        #result-user-research .item-result-research-user .loading-icon-add-remove.active{
-                            display: inline-block;
-                        }
-                    #result-user-research .item-result-research-user .text-add-remove{
-                        display: inline-block;
-                    }
-                        #result-user-research .item-result-research-user .text-add-remove.active{
-                            display: none;
-                        }
+.content-dashboard .part_left .deconnexion {
+    display: block;
+    margin: 20px auto 0;
+    text-decoration: none;
+    text-align: center;
+}
 
+.content-dashboard .part_right {
+    width: 69%;
+    text-align: center;
+}
 
+.content-dashboard .part_right .loading-icon {
+    display: none;
+}
+
+.content-dashboard .part_right .loading-icon.active {
+    display: inline-block;
+}
+
+.content-dashboard .part_right .title {
+    text-transform: uppercase;
+    font-size: 250%;
+}
+
+/*******************************************************************************/
+/*                            TOUS LES EVENTS                                  */
+/*******************************************************************************/
+
+/*******************************************************************************/
+/*                            CREER EVENEMENT                                  */
+/*******************************************************************************/
+
+/*******************************************************************************/
+/*                                 RECHERCHE                                   */
+/*******************************************************************************/
+#result-user-research {
+    margin-top: 15px;
+}
+
+.loading-icon-research {
+    display: none;
+}
+
+.loading-icon-research.active {
+    display: inline-block;
+}
+
+#result-user-research .item-result-research-user {
+    padding: 7px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    width: 50%;
+    margin: 10px auto 0;
+}
+
+#result-user-research .item-result-research-user:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+#result-user-research .item-result-research-user .name {
+    display: inline-block;
+    width: 75%;
+}
+
+#result-user-research .item-result-research-user .add-remove-button {
+    display: inline-block;
+    width: 20%;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    -webkit-transition: background .6s ease-in;
+    -moz-transition: background .6s ease-in;
+    -o-transition: background .6s ease-in;
+    transition: background .6s ease-in;
+}
+
+#result-user-research .item-result-research-user .add-remove-button:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#result-user-research .item-result-research-user .loading-icon-add-remove {
+    display: none;
+}
+
+#result-user-research .item-result-research-user .loading-icon-add-remove.active {
+    display: inline-block;
+}
+
+#result-user-research .item-result-research-user .text-add-remove {
+    display: inline-block;
+}
+
+#result-user-research .item-result-research-user .friendAdded
+{
+    background: #8fc123;
+    color: #FFF;
+    cursor: default;
+}
 
 /***************************************************************************************************************/
 /*                                             CONNEXION                                                       */
 /***************************************************************************************************************/
 .content.content-accueil {
     width: 100%;
-    height:100%;
+    height: 100%;
 }
-    .container-form-accueil{
-        margin:200px auto 0;
-        width:30%;
-        text-align: center;
-    }
-        .container-form-accueil .title{
-            font-size:300%;
-            color:rgba(0,0,0,0.8);
-        }
 
+.container-form-accueil {
+    margin: 200px auto 0;
+    width: 30%;
+    text-align: center;
+}
+
+.container-form-accueil .title {
+    font-size: 300%;
+    color: rgba(0, 0, 0, 0.8);
+}
 
 /****************************************************************************************************************/
 /*                                             EVENEMENTS MAP                                                   */
 /****************************************************************************************************************/
 
-.container-event-map{
-    width:250px;
+.container-event-map {
+    width: 250px;
     position: relative;
-    top:50px;
+    top: 50px;
     left: 15px;
 }
-    .container-event-map .top{
-        padding:0 20px;
-        margin-top: 15px;
-        font-size:35px;
-    }
-        .container-event-map .top img{
-            height:30px;
-            position: relative;
-            top:3px;
-            margin-right: 5px;
-        }
-    .container-event-map .bottom{
-        padding:0 30px;
-    }
-        .container-event-map .bottom .lieu{
-            color:#7a7a7a;
-        }
-        .container-event-map .bottom .invitation{
-            font-size:10px;
-        }
-            .container-event-map .bottom .invitation a{
-                color:black;
-                text-decoration: none;
-            }
-                .container-event-map .bottom .invitation a:hover{
-                    color:grey;
-                    text-decoration: underline;
-                }
+
+.container-event-map .top {
+    padding: 0 20px;
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.container-event-map .top img {
+    height: 30px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+
+.container-event-map .bottom {
+    padding: 0 30px;
+}
+
+.container-event-map .bottom .lieu {
+    color: #7a7a7a;
+}
+
+.container-event-map .bottom .invitation {
+    font-size: 10px;
+}
+
+.container-event-map .bottom .invitation a {
+    color: black;
+    text-decoration: none;
+}
+
+.container-event-map .bottom .invitation a:hover {
+    color: grey;
+    text-decoration: underline;
+}
+
+
