@@ -7,16 +7,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap"
             async defer></script>
     <!--  FIN APPEL MAP -->
-    <div class="content content-accueil">
-        <form class="container container-form-accueil">
-            <div class="title">
-                Connexion
-            </div>
-            <input type="text" placeholder="Adresse email...">
-            <br/>
-            <input type="password" placeholder="Mot de passe...">
-            <br/>
-            <input type="submit" value="Connexion">
-        </form>
+    <div class="content">
+        <button id="accessDashboardButton"><a href="{{ path('dashboard') }}">{{ "dashboardAccessButton"|trans }}</a></button>
     </div>
 {% endblock %}
