@@ -60,7 +60,7 @@ input[type=text], .container input[type=password], .container input[type=email] 
     text-transform: uppercase;
 }
 
-.button, input[type=submit] {
+.button, input[type=submit], a.button {
     width: 150px;
     background-color: #8fc123;
     padding: 10px;
@@ -179,6 +179,92 @@ input[type=text], .container input[type=password], .container input[type=email] 
 /*******************************************************************************/
 /*                            CREER EVENEMENT                                  */
 /*******************************************************************************/
+#form_new_event{
+
+}
+    #form_new_event label{
+        display: block;
+        text-align: center;
+        margin-top:15px;
+        font-size: 150%;
+    }
+    #form_new_event textarea{
+        width: 80%;
+        border: 1px solid silver;
+        padding: 10px;
+        margin-top: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        font-size: 120%;
+        font-family: font;
+        font-weight: bold;
+        user-select: none;
+        text-transform: uppercase;
+    }
+    #form_new_event select{
+        width: 10%;
+        border: 1px solid silver;
+        padding: 10px;
+        margin-top: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        font-size: 120%;
+        font-family: font;
+        font-weight: bold;
+        user-select: none;
+        text-transform: uppercase;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #appbundle_event_dateStart{
+        overflow: hidden;
+    }
+        #appbundle_event_dateStart select{
+            width:20%;
+        }
+        #appbundle_event_dateStart_date{
+            width: 50%;
+            float:left;
+            text-align: right;
+        }
+            #appbundle_event_dateStart_date:before{
+                content: "Jour : ";
+            }
+        #appbundle_event_dateStart_time{
+            width: 50%;
+            float:left;
+            text-align: left;
+        }
+            #appbundle_event_dateStart_time:before{
+                content: "Heure : ";
+            }
+
+    #appbundle_event_dateEnd{
+        overflow: hidden;
+    }
+        #appbundle_event_dateEnd select{
+            width:20%;
+        }
+        #appbundle_event_dateEnd_date{
+            width: 50%;
+            float:left;
+            text-align: right;
+        }
+            #appbundle_event_dateEnd_date:before{
+                content: "Jour : ";
+            }
+        #appbundle_event_dateEnd_time{
+            width: 50%;
+            float:left;
+            text-align: left;
+        }
+            #appbundle_event_dateEnd_time:before{
+                content: "Heure : ";
+            }
+    #appbundle_event_category{
+        width:80% !important;
+        text-align: center;
+    }
 
 /*******************************************************************************/
 /*                                 RECHERCHE                                   */
@@ -257,7 +343,7 @@ input[type=text], .container input[type=password], .container input[type=email] 
 }
 
 .container-form-accueil {
-    margin: 200px auto 0;
+    margin: 50px auto 0;
     width: 30%;
     text-align: center;
 }
@@ -266,6 +352,18 @@ input[type=text], .container input[type=password], .container input[type=email] 
     font-size: 300%;
     color: rgba(0, 0, 0, 0.8);
 }
+
+.content-accueil{
+    text-align: center;
+}
+#registerButton{
+    margin:15px auto 0;
+    background-color: #729c17;
+}
+    #registerButton a{
+        text-decoration: none;
+        color:white;
+    }
 
 /****************************************************************************************************************/
 /*                                             EVENEMENTS MAP                                                   */

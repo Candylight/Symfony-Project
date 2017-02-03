@@ -21,7 +21,7 @@
         <div class="item-dashboard" data-pagename="search_user" data-path="{{ path('findUser') }}">
             Utilisateurs
         </div>
-        <a href="{{ path('fos_user_security_logout') }}">
+        <a class="button deconnexion" href="{{ path('fos_user_security_logout') }}">
             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
         </a>
     </div>
