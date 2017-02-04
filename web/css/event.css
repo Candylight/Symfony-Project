@@ -50,9 +50,10 @@
     content: "Jour : ";
 }
 #appbundle_event_dateStart_time{
-    width: 50%;
+    width: 45%;
     float:left;
     text-align: left;
+    padding-left: 5%;
 }
 #appbundle_event_dateStart_time:before{
     content: "Heure : ";
@@ -65,9 +66,10 @@
     width:20%;
 }
 #appbundle_event_dateEnd_date{
-    width: 50%;
+    width: 45%;
     float:left;
     text-align: right;
+    padding-left: 5%;
 }
 #appbundle_event_dateEnd_date:before{
     content: "Jour : ";
@@ -99,4 +101,9 @@
     width: 60%;
     margin: 5px auto 0 auto;
     padding-bottom: 10px;
+}
+
+#submitNewEvent
+{
+    margin-bottom: 40px;
 }
