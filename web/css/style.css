@@ -231,9 +231,10 @@ input[type=text], .container input[type=password], .container input[type=email] 
                 content: "Jour : ";
             }
         #appbundle_event_dateStart_time{
-            width: 50%;
+            width: 45%;
             float:left;
             text-align: left;
+            padding-left: 5%;
         }
             #appbundle_event_dateStart_time:before{
                 content: "Heure : ";
@@ -254,9 +255,10 @@ input[type=text], .container input[type=password], .container input[type=email] 
                 content: "Jour : ";
             }
         #appbundle_event_dateEnd_time{
-            width: 50%;
+            width: 45%;
             float:left;
             text-align: left;
+            padding-left: 5%;
         }
             #appbundle_event_dateEnd_time:before{
                 content: "Heure : ";
@@ -264,6 +266,9 @@ input[type=text], .container input[type=password], .container input[type=email] 
     #appbundle_event_category{
         width:80% !important;
         text-align: center;
+    }
+    #submitNewEvent{
+        margin-bottom: 40px;
     }
 
 /*******************************************************************************/
@@ -410,5 +415,3 @@ input[type=text], .container input[type=password], .container input[type=email] 
     color: grey;
     text-decoration: underline;
 }
-
-
