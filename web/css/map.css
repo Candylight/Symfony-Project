@@ -1,0 +1,47 @@
+.map {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.container-event-map {
+    width: 250px;
+    position: relative;
+    top: 50px;
+    left: 15px;
+}
+
+.container-event-map .top {
+    padding: 0 20px;
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.container-event-map .top img {
+    height: 30px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+
+.container-event-map .bottom {
+    padding: 0 30px;
+}
+
+.container-event-map .bottom .lieu {
+    color: #7a7a7a;
+}
+
+.container-event-map .bottom .invitation {
+    font-size: 10px;
+}
+
+.container-event-map .bottom .invitation a {
+    color: black;
+    text-decoration: none;
+}
+
+.container-event-map .bottom .invitation a:hover {
+    color: grey;
+    text-decoration: underline;
+}

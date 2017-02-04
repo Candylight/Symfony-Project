@@ -1,0 +1,12 @@
+{% extends 'dashboard/dashboardBody.html.twig' %}
+
+{% block dashboardContent %}
+    <h1>{{ "event.list.title"|trans }}</h1>
+    {% for event in events %}
+
+    {% else %}
+        <div>
+            <p>{{ "event.list.noEvent"|trans }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

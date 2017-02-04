@@ -1,8 +1,22 @@
-<input id="userKeyword" type="text" placeholder="{{ "user.findUser.search"|trans }}">
-<center>
-<div class="button" onclick="searchUser('{{ path("searchUser") }}');">{{ "validate"|trans }}</div>
-</center>
+{% extends "dashboard/dashboardBody.html.twig" %}
 
-<img src="{{ asset('img/icones/loading_research_user.gif') }}" class="loading-icon-research" alt="">
-<div id="result-user-research">
-</div>
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/searchUser.css') }}">
+{% endblock %}
+
+{% block dashboardContent %}
+    <input id="userKeyword" type="text" placeholder="{{ "user.findUser.search"|trans }}">
+
+    <div class="button" onclick="searchUser('{{ path("searchUser") }}');">{{ "validate"|trans }}</div>
+
+
+    <img src="{{ asset('img/icones/loading_research_user.gif') }}" class="loading-icon-research" alt="">
+    <div id="result-user-research">
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/manageUsers.js') }}"></script>
+{% endblock %}

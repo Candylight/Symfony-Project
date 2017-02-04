@@ -25,9 +25,9 @@ class EventCategoryController extends Controller
      */
     public function listEventCategoryAction()
     {
-        return new Response($this->renderView(":eventCategory:listEventCategory.html.twig",array(
+        return $this->render(":eventCategory:listEventCategory.html.twig",array(
             "categories" => $this->getDoctrine()->getRepository("AppBundle:EventCategory")->findAll()
-        )));
+        ));
     }
 
     /**
@@ -37,10 +37,10 @@ class EventCategoryController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function newEventCategory($id = -1)
+    public function newEventCategoryAction($id = 0)
     {
         $eventCategory = new EventCategory();
-        if($id > 0)
+        if($id != 0)
         {
             $eventCategory = $this->getDoctrine()->getRepository("AppBundle:EventCategory")->find($id);
         }
@@ -50,9 +50,9 @@ class EventCategoryController extends Controller
             "action"=> $this->generateUrl("saveEventCategory",array("id"=>$eventCategory->getId()))
         ));
 
-        return new Response($this->renderView(':eventCategory:newEventCategoryTab.html.twig', array(
+        return $this->render(':eventCategory:newEventCategoryTab.html.twig', array(
                 "form" => $form->createView()
-            )));
+            ));
     }
 
     /**
@@ -63,10 +63,10 @@ class EventCategoryController extends Controller
      *
      * @return RedirectResponse
      */
-    public function saveEventCategoryAction(Request $request, $id = -1)
+    public function saveEventCategoryAction(Request $request, $id = 1)
     {
         $eventCategory = new EventCategory();
-        if($id > 0)
+        if($id = 0)
         {
             $eventCategory = $this->getDoctrine()->getRepository("AppBundle:EventCategory")->find($id);
         }

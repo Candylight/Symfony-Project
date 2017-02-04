@@ -13,7 +13,25 @@ dashboardAccessButton: 'Accéder au dashboard'
 
 event:
     create:
+        title: 'Titre'
         description: 'Description'
         dateStart: 'Date de début'
         dateEnd: 'Date de fin'
         category: 'Catégorie'
+        address: 'Adresse'
+        participant: 'Participant'
+    list:
+        title: 'Mes événements'
+        noEvent: 'Aucun événement enregistré pour le moment'
+
+dashboard:
+    title: 'Dashboard'
+    buttons:
+        events: 'Mes événements'
+        createEvent: 'Créer un événement'
+        manageCategories: 'Gérer les catégories'
+        users: 'Utilisateurs'
+        map: 'Carte'
+    home:
+        title: 'Bienvenue sur votre dashboard'
+        text: 'Que souhaitez-vous faire ?'

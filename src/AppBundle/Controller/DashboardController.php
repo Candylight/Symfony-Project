@@ -25,31 +25,4 @@ class DashboardController extends Controller
     {
         return $this->render('dashboard/dashboard.html.twig');
     }
-
-    /**
-     * @Route("/dashboard/eventTab", name="dashboardEventTab")
-     */
-    public function eventTabAction(Request $request)
-    {
-        if($request->getMethod() == "POST")
-        {
-            //chargement au changement d'onglet, Attention bien utiliser renderView en cas de Response
-            return new Response($this->renderView(':dashboard:eventTab.html.twig'));
-        }
-
-        //Chargement par défaut
-        return $this->render(':dashboard:eventTab.html.twig');
-    }
-
-    /**
-     * @Route("/dashboard/newEventTab", name="dashboardNewEventTab")
-     */
-    public function newEventTabAction(Request $request)
-    {
-        $form = $this->createForm(EventType::class,new Event(), array('action'=>"save_event"));
-
-        return new Response($this->renderView('event/newEvent.html.twig',array(
-            'form' => $form->createView()
-        )));
-    }
 }

@@ -20,16 +20,20 @@ use Symfony\Component\HttpFoundation\Request;
 class EventController extends Controller
 {
     /**
-     * @Route("/event/create/{id}", name="new_event")
+     * @Route("/event/create/{id}", name="new_event", defaults={"id": 0})
      */
-    public function newEventAction(Event $event)
+    public function newEventAction($id)
     {
-        if($event == null)
+        $event = new Event();
+        if($id != 0)
         {
-            $event = new Event;
+            $event = $this->getDoctrine()->getRepository('AppBundle:Event')->find($id);
         }
 
-        $form = $this->createForm(EventType::class,$event, array('action'=>"save_event"));
+        $form = $this->createForm(EventType::class,$event, array(
+            'action'=>"save_event",
+            'user' => $this->get('security.token_storage')->getToken()->getUser()
+        ));
         return $this->render('event/newEvent.html.twig',array(
             'form' => $form->createView()
         ));
@@ -60,10 +64,16 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/list/{id}", name="list_event")
+     * @Route("/event/list", name="list_event")
      */
-    public function eventListAction(User $user)
+    public function eventListAction()
     {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
+        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner' => $user),array('dateStart' => 'ASC'));
+
+        return $this->render('event/listEvent.html.twig',array(
+            "events" => $events
+        ));
     }
 }

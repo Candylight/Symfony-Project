@@ -1,41 +1,29 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+{% endblock %}
+
 {% block body %}
-<div class="part-left-fixed"></div>
-<div class="header">
-    Dashboard
-</div>
-<div class="content-dashboard">
-    <div class="part part_left">
-        <div class="item-dashboard active" data-pagename="evenements" data-path="{{ path('dashboardEventTab') }}">
-            Mes evenements
-        </div>
-        <div class="item-dashboard" data-pagename="nouveau" data-path="{{ path('dashboardNewEventTab') }}">
-            Creer un evenement
-        </div>
+
+    {{ include('dashboard/dashboardHeader.html.twig') }}
+
+    <div class="content-dashboard">
+        <h1>{{ "dashboard.home.title"|trans }}</h1>
+        <p>{{ "dashboard.home.text"|trans }}</p>
+
+        <a href="{{ path('list_event') }}">{{ "dashboard.buttons.events"|trans }}</a>
+        <a href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
         {% if is_granted('ROLE_ADMIN') %}
-            <div class="item-dashboard" data-pagename="category_new" data-path="{{ path('newEventCategoryTab') }}">
-                Gerer les categories
-            </div>
+            <a href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>
         {% endif %}
-        <div class="item-dashboard" data-pagename="search_user" data-path="{{ path('findUser') }}">
-            Utilisateurs
-        </div>
-        <a class="button deconnexion" href="{{ path('fos_user_security_logout') }}">
-            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-        </a>
+        <a href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
+        <a href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
+        <a class="button deconnexion" href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
     </div>
-    <div class="part part_right">
-        <img src="{{ asset('img/icones/loading-ajax.gif') }}" class="loading-icon" alt="">
-        <div id="content-dashboard">
-            {{ render(controller("AppBundle:Dashboard:eventTab")) }}
-        </div>
-    </div>
-</div>
 
 {% endblock %}
 
-
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/dashboard.js') }}"></script>
 {% endblock %}

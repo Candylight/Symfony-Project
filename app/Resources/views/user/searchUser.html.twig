@@ -4,7 +4,7 @@
             {{ user.username }}
         </span>
         {% if not currentUser.isFriend(user) %}
-            <span id="userSearch{{ user.id }}" class="add-remove-button" onclick="addUser('{{ path("addFriend",{'id':user.id}) }}',{{ user.id }})">
+            <span id="userSearch{{ user.id }}" class="add-remove-button" onclick="addFriend('{{ path("addFriend",{'id':user.id}) }}',{{ user.id }})">
                 <img src="{{ asset('img/icones/loading_add_remove_user.gif') }}" class="loading-icon-add-remove icon-add-remove-{{ user.id }}" alt="">
                 <span class="text-add-remove text-add-remove-{{ user.id }}">
                     Ajouter

@@ -1,6 +1,22 @@
-<div id="form_new_event">
-{{ form_start(form) }}
-{{ form_rest(form) }}
-{{ form_end(form) }}
-</div>
-<button id="submitNewEvent" class="button">Sauvegarder l'événement</button>
+{% extends 'dashboard/dashboardBody.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+{% endblock %}
+
+{% block dashboardContent %}
+    <div id="form_new_event">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <label for="address">{{ "event.create.address"|trans }}</label>
+        <input id="address" type="text">
+        {{ form_end(form) }}
+    </div>
+    <button id="submitNewEvent" class="button">Sauvegarder l'événement</button>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&signed_in=true&libraries=places&callback=initMap" async defer></script>
+{% endblock %}

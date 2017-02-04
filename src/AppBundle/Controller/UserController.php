@@ -13,19 +13,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class UserController extends Controller
 {
     /**
-     * @Route("/findUser", name="findUser")
+     * @Route("/userList", name="userList")
+     * @Method({"GET"})
      */
-    public function findUserAction()
+    public function userListAction()
     {
-        return new Response($this->renderView("user/findUser.html.twig"));
+        return $this->render("user/findUser.html.twig");
     }
 
     /**
      * @Route("/findUser/search", name="searchUser")
+     * @Method({"POST"})
      */
     public function searchUserAction(Request $request)
     {
@@ -47,6 +50,7 @@ class UserController extends Controller
 
     /**
      * @Route("/addFriend/{id}", name="addFriend")
+     * @Method({"POST"})
      *
      * @param User $friend
      *
@@ -72,6 +76,7 @@ class UserController extends Controller
 
     /**
      * @Route("/removeFriend/{id}", name="removeFriend")
+     * @Method({"POST"})
      *
      * @param User $friend
      *
