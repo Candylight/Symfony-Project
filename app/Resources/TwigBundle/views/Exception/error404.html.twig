@@ -1,1 +1,33 @@
-Not Found
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--  APPEL MAP -->
+    <div class="map" id="map"></div>
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap"
+            async defer></script>
+    <!--  FIN APPEL MAP -->
+    <div class="content" id="content_404">
+        <div class="title">
+            {{ "404pageMessage"|trans }}
+        </div>
+        <button id="accessDashboardButton" class="button"><a href="{{ path('fos_user_security_login') }}">{{ "loginAccessButton"|trans }}</a></button>
+    </div>
+    <style>
+        #content_404{
+            text-align: center;
+            background-color: rgba(255,255,255,0.9);
+            padding:40px;
+            margin-top:50px;
+            display: block;
+            width: 100%;
+        }
+            #content_404 .title{
+                font-size: 100px;
+            }
+            #content_404 .button a{
+                text-decoration: none;
+                color:white;
+            }
+    </style>
+{% endblock %}

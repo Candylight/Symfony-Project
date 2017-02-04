@@ -10,6 +10,10 @@ user:
 
 validate : 'Valider'
 dashboardAccessButton: 'Accéder au dashboard'
+loginAccessButton: 'Se connecter'
+404page: 'Page introuvable'
+errorPageMessage: 'Erreur'
+403pageMessage: 'Accès interdit'
 
 event:
     create:
