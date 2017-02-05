@@ -7,10 +7,9 @@
 
 {% block dashboardContent %}
     <input id="userKeyword" type="text" placeholder="{{ "user.findUser.search"|trans }}">
-
-    <div class="button" onclick="searchUser('{{ path("searchUser") }}');">{{ "validate"|trans }}</div>
-
-
+    <br/>
+    <button class="button" onclick="searchUser('{{ path("searchUser") }}');">{{ "validate"|trans }}</button>
+    <br/>
     <img src="{{ asset('img/icones/loading_research_user.gif') }}" class="loading-icon-research" alt="">
     <div id="result-user-research">
     </div>

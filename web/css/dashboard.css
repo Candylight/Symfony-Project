@@ -61,6 +61,7 @@
     padding: 10px;
     text-align: center;
     font-size: 200%;
+    display: block;
 }
 
 .content-dashboard .part_left .item-dashboard:hover, .content-dashboard .part_left .item-skin-dashboard:hover {
