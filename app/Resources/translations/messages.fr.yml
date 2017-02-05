@@ -1,7 +1,15 @@
 eventCategory:
+    addTitle: 'Ajouter une catégorie'
     noCategory: 'Aucune catégorie renseignée'
     name: 'Nom'
     color: 'Couleur'
+    submit: 'Valider'
+    update: 'Modifier'
+    delete: 'Supprimer'
+    deletedNotif: 'Catégorie supprimée'
+    error: 'La catégorie n''existe pas'
+    udapteTitle: 'Modifier la catégorie'
+    updated: 'Catégorie modifiée'
 
 user:
     findUser:

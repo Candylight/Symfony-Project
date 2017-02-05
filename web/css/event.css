@@ -107,3 +107,25 @@
 {
     margin-bottom: 40px;
 }
+
+/* EventCategories */
+
+.eventCategoriesContainer
+{
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+.colorSample
+{
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.categoryContainer
+{
+    margin-bottom: 10px;
+}

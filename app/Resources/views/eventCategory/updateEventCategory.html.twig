@@ -1,0 +1,18 @@
+{% extends 'dashboard/dashboardBody.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+{% endblock %}
+
+{% block dashboardContent %}
+    {{ parent() }}
+
+    <div class="title">
+        {{ "eventCategory.udapteTitle"|trans }}
+    </div>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

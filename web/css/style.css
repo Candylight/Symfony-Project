@@ -54,7 +54,7 @@ input[type=text], .container input[type=password], .container input[type=email] 
     text-transform: uppercase;
 }
 
-.button, input[type=submit], a.button {
+.button, input[type=submit], a.button, button[type=submit] {
     width: 150px;
     background-color: #8fc123;
     padding: 10px;
@@ -70,6 +70,17 @@ input[type=text], .container input[type=password], .container input[type=email] 
     text-transform: uppercase;
 }
 
-.button:hover, input[type=submit]:hover {
+.button:hover, input[type=submit]:hover, button[type=submit] {
     background-color: #729c17;
+}
+
+a
+{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover
+{
+    color: #729c17;
 }

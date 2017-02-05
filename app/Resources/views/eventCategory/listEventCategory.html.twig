@@ -2,19 +2,31 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
 {% endblock %}
 
 {% block dashboardContent %}
-    {% for category in categories %}
-        <div>
-            {{ "eventCategory.name"|trans }} : {{ category.name }}
-            {{ "eventCategory.color"|trans }} : {{ category.color }}
-        </div>
-    {% else %}
-        <div>
-            {{ "eventCategory.noCategory"|trans }}
-        </div>
-    {% endfor %}
+    {{ parent() }}
+    <div class="eventCategoriesContainer">
+        {% for category in categories %}
+            <div class="categoryContainer">
+                <div>
+                    {{ "eventCategory.name"|trans }} : {{ category.name }}
+                </div>
+                <div>
+                    {{ "eventCategory.color"|trans }} : <div style="background: #{{ category.color }};" class="colorSample"></div> <span class="colorSampleValue">#{{ category.color }}</span>
+                </div>
+                <div>
+                    <a href="{{ path('updateEventCategory',{'id':category.id}) }}">{{ "eventCategory.update"|trans }}</a>
+                    <a href="{{ path('deleteEventCategory',{'id':category.id}) }}">{{ "eventCategory.delete"|trans }}</a>
+                </div>
+            </div>
+        {% else %}
+            <div>
+                {{ "eventCategory.noCategory"|trans }}
+            </div>
+        {% endfor %}
+    </div>
 
     {{ render(controller('AppBundle:EventCategory:newEventCategory')) }}
 {% endblock %}
