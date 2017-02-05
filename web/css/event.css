@@ -66,18 +66,18 @@
     width:20%;
 }
 #appbundle_event_dateEnd_date{
-    width: 45%;
+    width: 50%;
     float:left;
     text-align: right;
-    padding-left: 5%;
 }
 #appbundle_event_dateEnd_date:before{
     content: "Jour : ";
 }
 #appbundle_event_dateEnd_time{
-    width: 50%;
+    width: 45%;
     float:left;
     text-align: left;
+    padding-left: 5%;
 }
 #appbundle_event_dateEnd_time:before{
     content: "Heure : ";

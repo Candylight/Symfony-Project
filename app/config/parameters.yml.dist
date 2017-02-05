@@ -17,3 +17,4 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    google_api_key: AIzaSyARriZGNzGVZHFHXt-SCDC8mKK1row1v6E

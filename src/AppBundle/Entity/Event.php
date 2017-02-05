@@ -100,13 +100,6 @@ class Event
     private $country;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="postalCode", type="integer")
-     */
-    private $postalCode;
-
-    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EventCategory", inversedBy="event")
      * @ORM\JoinColumn(name="category", referencedColumnName="id")
      */
@@ -409,30 +402,6 @@ class Event
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * Set postalCode
-     *
-     * @param integer $postalCode
-     *
-     * @return Event
-     */
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
-     * Get postalCode
-     *
-     * @return int
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
     }
 
     /**

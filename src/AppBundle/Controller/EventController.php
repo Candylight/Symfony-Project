@@ -20,18 +20,12 @@ use Symfony\Component\HttpFoundation\Request;
 class EventController extends Controller
 {
     /**
-     * @Route("/event/create/{id}", name="new_event", defaults={"id": 0})
+     * @Route("/event/create", name="new_event")
      */
-    public function newEventAction($id)
+    public function newEventAction()
     {
-        $event = new Event();
-        if($id != 0)
-        {
-            $event = $this->getDoctrine()->getRepository('AppBundle:Event')->find($id);
-        }
-
-        $form = $this->createForm(EventType::class,$event, array(
-            'action'=>"save_event",
+        $form = $this->createForm(EventType::class,new Event, array(
+            'action'=> $this->generateUrl('save_event'),
             'user' => $this->get('security.token_storage')->getToken()->getUser()
         ));
         return $this->render('event/newEvent.html.twig',array(
@@ -40,23 +34,48 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/save/{id}", name="save_event")
+     * @Route("/event/save/{id}", name="save_event", defaults={"id" = 0})
      */
-    public function saveEventAction(Event $event,Request $request)
+    public function saveEventAction(Request $request,Event $event = null)
     {
+        $event = new Event();
+
         if($event == null)
         {
             $event = new Event;
         }
 
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
         if($request->getMethod() == "POST")
         {
-            $form = $this->createForm(EventType::class,$event);
+            $form = $this->createForm(EventType::class,$event,array(
+                'user' => $user
+            ));
             $form->handleRequest($request);
 
             if($form->isValid())
             {
 
+                $geocode = $this->get('app.geocodingfunctions')->getGeocode($request->get('address'));
+
+                if(!$geocode)
+                {
+                    return $this->redirectToRoute('new_event');
+                }
+
+                list($address,$town,$country) = explode(', ',$request->get('address'));
+
+                $event->setLatitude($geocode['lat']);
+                $event->setLongitude($geocode['lng']);
+                $event->setAddress($address);
+                $event->setTown($town);
+                $event->setCountry($country);
+                $event->setOwner($user);
+                $event->addParticipant($user);
+
+                $this->getDoctrine()->getManager()->persist($event);
+                $this->getDoctrine()->getManager()->flush();
             }
         }
 
@@ -70,7 +89,7 @@ class EventController extends Controller
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner' => $user),array('dateStart' => 'ASC'));
+        $events = $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner' => $user->getId()),array('dateStart' => 'ASC'));
 
         return $this->render('event/listEvent.html.twig',array(
             "events" => $events
