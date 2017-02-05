@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EventCategoryType extends AbstractType
 {
@@ -13,17 +15,20 @@ class EventCategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name','Symfony\Component\Form\Extension\Core\Type\TextType',array(
+        $builder->add('name',TextType::class,array(
             "label" => false,
             "attr" => array(
                 "placeholder" => "eventCategory.name"
             )
         ))
-            ->add('color','Symfony\Component\Form\Extension\Core\Type\TextType',array(
+            ->add('color',TextType::class,array(
                 "label" => false,
                 "attr" => array(
                     "placeholder" => "eventCategory.color"
                 )
+            ))
+            ->add('submit',SubmitType::class,array(
+                'label' => 'eventCategory.submit'
             ))
         ;
     }
