@@ -32,6 +32,7 @@ event:
         category: 'Catégorie'
         address: 'Adresse'
         participant: 'Participant'
+        submit: 'Sauvegarder l''événement'
     list:
         title: 'Mes événements'
         noEvent: 'Aucun événement enregistré pour le moment'

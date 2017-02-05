@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <!--  APPEL MAP -->
     <div class="map" id="map"></div>
-    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap"
-            async defer></script>
-    <!--  FIN APPEL MAP -->
+
     <div class="content">
         <button id="accessDashboardButton"><a href="{{ path('dashboard') }}">{{ "dashboardAccessButton"|trans }}</a></button>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap" async defer></script>
 {% endblock %}
