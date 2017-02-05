@@ -13,10 +13,10 @@
         <h1>{{ "dashboard.home.title"|trans }}</h1>
         <h2>{{ "dashboard.home.text"|trans }}</h2>
         <div class="container-actions">
-            <a class="button" href="{{ path('list_event') }}">{{ "dashboard.buttons.events"|trans }}</a>
-            <a class="button" href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
-            <a class="button" href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
-            <a class="button" href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
+            <a class="button event" href="{{ path('list_event') }}">{{ "dashboard.buttons.events"|trans }}</a>
+            <a class="button event_new" href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
+            <a class="button user" href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
+            <a class="button map" href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
         </div>
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>

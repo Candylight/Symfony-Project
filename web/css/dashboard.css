@@ -41,8 +41,26 @@
         .content-dashboard .container-actions a{
             text-decoration: none;
             margin-left:5%;
-            font-size:200%;
+            font-size:150%;
+            padding-top:40px;
+            position: relative;
+            top:25px;
+            background-position: center 10px;
+            background-repeat: no-repeat;
+            background-size: auto 20px;
         }
+            .content-dashboard .container-actions a.event{
+                background-image: url("../img/icones/dashboard_event.png");
+            }
+            .content-dashboard .container-actions a.event_new{
+                background-image: url("../img/icones/dashboard_event_new.png");
+            }
+            .content-dashboard .container-actions a.map{
+                background-image: url("../img/icones/dashboard_map.png");
+            }
+            .content-dashboard .container-actions a.user{
+                background-image: url("../img/icones/dashboard_user.png");
+            }
             .content-dashboard .container-actions a:first-child{
                 margin-left:0%;
             }
