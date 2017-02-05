@@ -11,15 +11,17 @@
 
     <div class="content-dashboard">
         <h1>{{ "dashboard.home.title"|trans }}</h1>
-        <p>{{ "dashboard.home.text"|trans }}</p>
-
-        <a href="{{ path('list_event') }}">{{ "dashboard.buttons.events"|trans }}</a>
-        <a href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
+        <h2>{{ "dashboard.home.text"|trans }}</h2>
+        <div class="container-actions">
+            <a class="button" href="{{ path('list_event') }}">{{ "dashboard.buttons.events"|trans }}</a>
+            <a class="button" href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
+            <a class="button" href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
+            <a class="button" href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
+        </div>
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>
         {% endif %}
-        <a href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
-        <a href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
+        <br/>
         <a class="button deconnexion" href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
     </div>
 

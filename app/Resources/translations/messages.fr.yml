@@ -40,11 +40,11 @@ event:
 dashboard:
     title: 'Dashboard'
     buttons:
-        events: 'Mes événements'
+        events: 'Voir mes événements'
         createEvent: 'Créer un événement'
         manageCategories: 'Gérer les catégories'
-        users: 'Utilisateurs'
-        map: 'Carte'
+        users: 'Chercher un utilisateur'
+        map: 'Voir la carte'
     home:
         title: 'Bienvenue sur votre dashboard'
         text: 'Que souhaitez-vous faire ?'

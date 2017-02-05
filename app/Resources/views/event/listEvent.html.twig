@@ -7,6 +7,7 @@
     {% else %}
         <div>
             <p>{{ "event.list.noEvent"|trans }}</p>
+            <a class="button" href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
         </div>
     {% endfor %}
 {% endblock %}
