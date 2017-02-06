@@ -34,37 +34,6 @@
     .content-dashboard h2{
         font-size:300%;
     }
-    .content-dashboard .container-actions{
-        width: 80%;
-        margin: 20px auto 50px;
-    }
-        .content-dashboard .container-actions a{
-            text-decoration: none;
-            margin-left:5%;
-            font-size:150%;
-            padding-top:40px;
-            position: relative;
-            top:25px;
-            background-position: center 10px;
-            background-repeat: no-repeat;
-            background-size: auto 20px;
-        }
-            .content-dashboard .container-actions a.event{
-                background-image: url("../img/icones/dashboard_event.png");
-            }
-            .content-dashboard .container-actions a.event_new{
-                background-image: url("../img/icones/dashboard_event_new.png");
-            }
-            .content-dashboard .container-actions a.map{
-                background-image: url("../img/icones/dashboard_map.png");
-            }
-            .content-dashboard .container-actions a.user{
-                background-image: url("../img/icones/dashboard_user.png");
-            }
-            .content-dashboard .container-actions a:first-child{
-                margin-left:0%;
-            }
-
 .content-dashboard .part {
     float: left;
     padding-top: 30px;
@@ -101,6 +70,7 @@
     margin: 20px auto 0;
     text-decoration: none;
     text-align: center;
+    background-color: #5fbc10;
 }
 
 .content-dashboard .part_right {
@@ -138,3 +108,40 @@
     color: #729c17;
     text-decoration: none;
 }
+
+
+.content-dashboard .actions{
+    overflow: hidden;
+    width: 40%;
+    margin:auto;
+}
+    .content-dashboard .actions .part{
+        width: 50%;
+        float: left;
+        overflow: hidden;
+    }
+        .content-dashboard .actions .part a{
+            margin-bottom: 30px;
+            display: inline-block;
+            text-decoration: none;
+        }
+.content-dashboard .map{
+    text-align: center;
+    width: 40%;
+    margin:auto;
+}
+    .content-dashboard .map a{
+        width: 50%;
+        text-decoration: none;
+        display: inline-block;
+    }
+.content-dashboard .admin{
+    text-align: center;
+    width: 40%;
+    margin:auto;
+}
+    .content-dashboard .admin a{
+        width: 50%;
+        text-decoration: none;
+        display: inline-block;
+    }
