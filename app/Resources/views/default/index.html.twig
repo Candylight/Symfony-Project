@@ -15,7 +15,7 @@
             </div>
             <div id="events">
                 {% for event in events %}
-                    <div class="event">
+                    <div class="event" style="border-right:2px solid {{ event.category.color }};">
                         <div class="top">
                             <img src="{{ asset('img/icones/cursor_map.png') }}" alt="">
                             {{ event.dateStart|date('d/m/y') }}
@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <div class="lieu">
+                            <div class="lieu" style="color:{{ event.category.color }}">
                                 {{ event.title }}
                             </div>
                             <div class="invitation">
