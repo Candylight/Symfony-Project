@@ -115,7 +115,30 @@
     border-bottom: 1px solid #c1c1c1;
     padding-bottom: 30px;
     margin-bottom: 50px;
+    overflow: hidden;
 }
+    .categoryContainer{
+        float: left;
+        width: 42%;
+        margin-left: 3%;
+        background-color: rgba(0,0,0,0.05);
+        padding:10px;
+    }
+    .categoryContainer div{
+        text-align: left;
+        font-size: 30px;
+    }
+        .categoryContainer div span{
+            color:#729C17;
+        }
+    .categoryContainer .actions{
+        text-align: center;
+        font-size: 15px;
+    }
+        .categoryContainer .actions a{
+            display: inline-block;
+            width: inherit;
+        }
 
 .colorSample
 {
