@@ -7,8 +7,15 @@
 .container-event-map {
     width: 250px;
     position: relative;
-    top: 50px;
-    left: 15px;
+    top:10px;
+    left: 10px;
+    text-align: center;
+}
+.container-event-map .accessDashboardButton{
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
 }
 
 .container-event-map .top {
@@ -22,6 +29,9 @@
     position: relative;
     top: 3px;
     margin-right: 5px;
+}
+.container-event-map .top .hour{
+    font-size:12px;
 }
 
 .container-event-map .bottom {

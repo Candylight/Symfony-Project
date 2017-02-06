@@ -65,3 +65,9 @@ friendList:
     notFound: 'Amis non trouvé'
     deleteFriend: 'Retirer'
     noFriends: 'Aucun amis dans la liste'
+
+
+map:
+    title : "Vos évenements"
+    noEvent : "Pas d'évènement à afficher"
+    linkToEvent : "Inviter de nouvelles personnes"
