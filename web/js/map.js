@@ -1,4 +1,10 @@
 
+$(document).ready(function () {
+    $('#closeEventInfos').on('click',function () {
+        $('#eventInfosContainer').html('');
+        $('#eventInfos').hide();
+    })
+});
 
 document.getElementById("map").style.height= document.documentElement.clientHeight+"px";
 var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":60}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"lightness":30}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#96de6b"},{"lightness":40}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#b6c54c"},{"lightness":40},{"saturation":-40}]},{}];
@@ -35,10 +41,26 @@ function initMap() {
         latLng = new google.maps.LatLng(markers[i][0], markers[i][1]);
         var marker = new google.maps.Marker({
             position: latLng,
-            title:"Hello World!",
+            title: markers[i][2],
             visible: true,
             icon: image
         });
+        marker.set('eventId',markers[i][3]);
         marker.setMap(map);
+
+        google.maps.event.addListener(marker, 'click', function() {
+            loadEventInfos(this.get('eventId'));
+        });
     }
+}
+
+function loadEventInfos(eventId)
+{
+    $.ajax({
+        url: getEventInfosPath.replace('id',eventId),
+        method: "POST"
+    }).done(function(data) {
+        $('#eventInfos').show();
+        $('#eventInfosContainer').html(data);
+    });
 }

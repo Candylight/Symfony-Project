@@ -19,7 +19,7 @@ class MapController extends Controller
         }
 
         return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'events' => $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner'=>$this->getUser())),
         ));
     }
     /**

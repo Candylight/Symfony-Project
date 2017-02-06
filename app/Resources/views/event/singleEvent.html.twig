@@ -1,0 +1,25 @@
+<div class="containerEvent">
+    <h2>{{ event.category.name }} {{ event.title }}</h2>
+    <p>
+        {{ event.description }}
+    </p>
+    <h3>{{ "event.list.date"|trans }}</h3>
+    <p>
+        {{ "event.list.fromDate"|trans }}
+        {{ event.dateStart|localizeddate('medium','short') }}
+        {{ "event.list.toDate"|trans }}
+        {{ event.dateEnd|localizeddate('medium','short') }}
+    </p>
+    <h3>{{ "event.list.address"|trans }}</h3>
+    <p>
+        {{ event.address }}, {{ event.town }}, {{ event.country }}
+    </p>
+    <h3>{{ "event.list.participant"|trans }}</h3>
+    <div class="participantsList">
+        {% for user in event.participant %}
+            <span>{{ user.username }}</span>
+        {% endfor %}
+    </div>
+    <a href="{{ path('updateEvent',{'id':event.id}) }}">{{ "event.list.update"|trans }}</a>
+    <a href="{{ path('deleteEvent',{'id':event.id}) }}">{{ "event.list.delete"|trans }}</a>
+</div>

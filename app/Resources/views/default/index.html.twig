@@ -1,15 +1,40 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/map.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="map" id="map"></div>
 
     <div class="content">
         <button id="accessDashboardButton"><a href="{{ path('dashboard') }}">{{ "dashboardAccessButton"|trans }}</a></button>
     </div>
+
+    <div id="eventInfos">
+        <span id="closeEventInfos">X</span>
+        <div id="eventInfosContainer">
+
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+
+    <script type="text/javascript">
+        var getEventInfosPath = "{{ path('singleEvent',{'id':'id'}) }}";
+        var markers = [
+            {% for event in events %}
+                {% if loop.last %}
+                    [{{ event.latitude }},{{ event.longitude }}, "{{ event.title }}", {{ event.id }}]
+                {% else %}
+                    [{{ event.latitude }},{{ event.longitude }}, "{{ event.title }}", {{ event.id }}],
+                {% endif %}
+            {% endfor %}
+        ];
+    </script>
 
     <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap" async defer></script>

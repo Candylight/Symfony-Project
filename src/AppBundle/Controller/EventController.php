@@ -15,8 +15,10 @@ use AppBundle\Form\EventType;
 use Doctrine\Common\Annotations\Annotation\Required;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class EventController extends Controller
@@ -158,5 +160,19 @@ class EventController extends Controller
         }
 
         return $this->redirectToRoute('list_event');
+    }
+
+    /**
+     * @Route("/event/single/{id}", name="singleEvent")
+     *
+     * @param Event $event
+     *
+     * @return Response
+     */
+    public function getSingleEventInfosAction(Event $event = null)
+    {
+        return new Response($this->renderView('event/singleEvent.html.twig',array(
+            "event" =>$event
+        )));
     }
 }
