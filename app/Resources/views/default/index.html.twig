@@ -14,7 +14,27 @@
                 {{ "map.title"|trans }}
             </div>
             <div id="events">
-                {{ "map.noEvent"|trans }}
+                {% for event in events %}
+                    <div class="event">
+                        <div class="top">
+                            <img src="{{ asset('img/icones/cursor_map.png') }}" alt="">
+                            {{ event.dateStart|date('d/m/y') }}
+                            <div class="hour">
+                                {{ event.dateStart|date('h:m') }} - {{ event.dateEnd|date('h:m') }}
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="lieu">
+                                {{ event.title }}
+                            </div>
+                            <div class="invitation">
+                                <a target="_blank" href="{{ path('updateEvent',{'id':event.id}) }}">{{ "map.linkToEvent"|trans }} &#x27A4;</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {{ "map.noEvent"|trans }}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -46,35 +66,4 @@
     <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&callback=initMap" async defer></script>
 
-    <script>
-
-        var container_events = document.getElementById("events");
-        var elm_event = '';
-        {% for event in events %}
-        var date = "{{ event.dateStart|date('d/m/y') }}";
-        var hour_start = "{{ event.dateStart|date('h:m') }}";
-        var hour_end = "{{ event.dateStart|date('h:m') }}";
-        var name = "{{ event.title }}";
-
-        elm_event += '<div class="event">';
-        elm_event += '<div class="top">';
-        elm_event += '<img src="{{ asset('img/icones/cursor_map.png') }}" alt="">';
-        elm_event += date;
-        elm_event += '<div class="hour">';
-        elm_event += hour_start+" - "+hour_end;
-        elm_event += '</div>';
-        elm_event += '</div>';
-        elm_event += '<div class="bottom">';
-        elm_event += '<div class="lieu">';
-        elm_event += name;
-        elm_event += '</div>';
-        elm_event += '<div class="invitation">';
-        elm_event += '<a target="_blank" href="{{ path('updateEvent',{'id':event.id}) }}">{{ "map.linkToEvent"|trans }} &#x27A4;</a>';
-        elm_event += '</div>';
-        elm_event += '</div>';
-        elm_event += '</div>';
-
-        {% endfor %}
-        container_events.innerHTML  = elm_event;
-    </script>
 {% endblock %}
