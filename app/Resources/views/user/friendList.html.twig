@@ -1,0 +1,25 @@
+{% extends 'dashboard/dashboardBody.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/searchUser.css') }}">
+{% endblock %}
+
+{% block dashboardContent %}
+    {{ parent() }}
+
+    {% for friend in friends %}
+        <div  class="item-result-research-user">
+            <span class="name">
+                {{ friend.username }}
+            </span>
+            <span class="add-remove-button friendRemove">
+                <span class="text-add-remove">
+                    <a href="{{ path('removeFriend',{'id':friend.id}) }}">{{ "friendList.deleteFriend"|trans }}</a>
+                </span>
+            </span>
+        </div>
+    {% else %}
+        {{ "friendList.noFriends"|trans }}
+    {% endfor %}
+{% endblock %}

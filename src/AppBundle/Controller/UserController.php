@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends Controller
 {
@@ -76,7 +77,7 @@ class UserController extends Controller
 
     /**
      * @Route("/removeFriend/{id}", name="removeFriend")
-     * @Method({"POST"})
+     * @Method({"GET"})
      *
      * @param User $friend
      *
@@ -84,7 +85,9 @@ class UserController extends Controller
      */
     public function removeFriendAction(User $friend)
     {
-        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+        $session = new Session();
+
+        $currentUser = $this->getUser();
         if($currentUser->isFriend($friend))
         {
             $currentUser->removeFriend($friend);
@@ -93,10 +96,25 @@ class UserController extends Controller
             $this->getDoctrine()->getManager()->persist($currentUser);
             $this->getDoctrine()->getManager()->persist($friend);
             $this->getDoctrine()->getManager()->flush();
-
-            return new Response('ok');
+            $session->getFlashBag()->add('success', $this->get('translator')->trans('friendList.deletedSuccess'));
+        }
+        else
+        {
+            $session->getFlashBag()->add('error', $this->get('translator')->trans('friendList.notFound'));
         }
 
-        return new Response('nok');
+        return $this->redirectToRoute('friendList');
+    }
+
+    /**
+     * @Route("/friendList", name="friendList")
+     *
+     * @return Response
+     */
+    public function friendListAction()
+    {
+        return $this->render('user/friendList.html.twig',array(
+            "friends" => $this->getUser()->getFriends()
+        ));
     }
 }

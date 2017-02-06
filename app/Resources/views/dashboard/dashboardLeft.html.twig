@@ -3,6 +3,7 @@
     <a class="item-dashboard" href="{{ path('new_event') }}">{{ "dashboard.buttons.createEvent"|trans }}</a>
     <a class="item-dashboard" href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
     <a class="item-dashboard" href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
+    <a class="item-dashboard" href="{{ path('friendList') }}">{{ "dashboard.buttons.friendList"|trans }}</a>
     {% if is_granted('ROLE_ADMIN') %}
         <a class="item-dashboard" href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>
     {% endif %}

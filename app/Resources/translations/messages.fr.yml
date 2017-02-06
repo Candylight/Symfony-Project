@@ -55,6 +55,13 @@ dashboard:
         manageCategories: 'Gérer les catégories'
         users: 'Chercher un utilisateur'
         map: 'Voir la carte'
+        friendList: 'Mes amis'
     home:
         title: 'Bienvenue sur votre dashboard'
         text: 'Que souhaitez-vous faire ?'
+
+friendList:
+    deletedSuccess: 'Amis retiré'
+    notFound: 'Amis non trouvé'
+    deleteFriend: 'Retirer'
+    noFriends: 'Aucun amis dans la liste'
