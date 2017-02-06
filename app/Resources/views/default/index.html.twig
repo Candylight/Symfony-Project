@@ -6,6 +6,10 @@
 {% endblock %}
 
 {% block body %}
+    <script>
+        var lat = 48.848714;
+        var lng = 2.389425;
+    </script>
     <div class="map" id="map"></div>
     <div class="content">
         <div class="container container-event-map">
@@ -32,6 +36,10 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        lat = {{ event.latitude }};
+                        lng = {{ event.longitude }};
+                    </script>
                 {% else %}
                     {{ "map.noEvent"|trans }}
                 {% endfor %}
