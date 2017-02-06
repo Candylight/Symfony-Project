@@ -19,18 +19,7 @@ class MapController extends Controller
         }
 
         return $this->render('default/index.html.twig', array(
-            'events' => $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner'=>$this->getUser())),
-        ));
-    }
-    /**
-     * @Route("/dayevent", name="dayevent")
-     */
-    public function dayeventAction(Request $request)
-    {
-        $events = $this->getDoctrine()->getRepository("AppBundle:Event")->findAll();
-
-        return $this->render('map/daymap.html.twig', array(
-            'events' => $events
+            'events' => $this->getDoctrine()->getRepository('AppBundle:Event')->findBy(array('owner'=>$this->getUser()), array('dateStart' => 'ASC')),
         ));
     }
 }

@@ -24,11 +24,20 @@ function initMap() {
     // to the map type control.
     var mapOptions = {
         zoom: 11,
-        center: new google.maps.LatLng(lat,lng),
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         }
     };
+
+    if(typeof lat != 'undefined' && typeof lng != 'undefined')
+    {
+        mapOptions['center'] = new google.maps.LatLng(lat,lng);
+    }
+    else
+    {
+        mapOptions['center'] = new google.maps.LatLng(48.848714, 2.389425);
+    }
+
     map = new google.maps.Map(document.getElementById('map'),
         mapOptions);
 
@@ -36,21 +45,23 @@ function initMap() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
+    if(typeof markers != "undefined")
+    {
+        for ( i = 0 ; i < markers.length ; i++){
+            latLng = new google.maps.LatLng(markers[i][0], markers[i][1]);
+            var marker = new google.maps.Marker({
+                position: latLng,
+                title: markers[i][2],
+                visible: true,
+                icon: image
+            });
+            marker.set('eventId',markers[i][3]);
+            marker.setMap(map);
 
-    for ( i = 0 ; i < markers.length ; i++){
-        latLng = new google.maps.LatLng(markers[i][0], markers[i][1]);
-        var marker = new google.maps.Marker({
-            position: latLng,
-            title: markers[i][2],
-            visible: true,
-            icon: image
-        });
-        marker.set('eventId',markers[i][3]);
-        marker.setMap(map);
-
-        google.maps.event.addListener(marker, 'click', function() {
-            loadEventInfos(this.get('eventId'));
-        });
+            google.maps.event.addListener(marker, 'click', function() {
+                loadEventInfos(this.get('eventId'));
+            });
+        }
     }
 }
 
