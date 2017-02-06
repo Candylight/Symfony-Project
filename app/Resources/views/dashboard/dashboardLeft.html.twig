@@ -4,9 +4,7 @@
     <a class="item-dashboard" href="{{ path('userList') }}">{{ "dashboard.buttons.users"|trans }}</a>
     <a class="item-dashboard" href="{{ path('homepage') }}">{{ "dashboard.buttons.map"|trans }}</a>
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="item-dashboard">
-            <a href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>
-        </div>
+        <a class="item-dashboard" href="{{ path('listEventCategory') }}">{{ "dashboard.buttons.manageCategories"|trans }}</a>
     {% endif %}
     <a class="button deconnexion" href="{{ path('fos_user_security_logout') }}">
         {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

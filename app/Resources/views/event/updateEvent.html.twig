@@ -1,0 +1,25 @@
+{% extends 'dashboard/dashboardBody.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+{% endblock %}
+
+{% block dashboardContent %}
+    <div id="form_new_event">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <label for="address">{{ "event.create.address"|trans }}</label>
+        <input id="address" name="address" type="text" value="{{ event.address }}, {{ event.town }}, {{ event.country }}">
+        <div>
+            <button id="submitNewEvent" type="submit" class="button">{{ "event.create.submit"|trans }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/newEvent.js') }}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYpkX0pUn5lR8RKW9mbu03Svrn3Mkfrus&libraries=places"></script>
+{% endblock %}

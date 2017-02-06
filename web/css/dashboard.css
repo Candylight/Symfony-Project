@@ -126,3 +126,15 @@
     color: #000;
     text-decoration: none;
 }
+
+.item-dashboard
+{
+    text-decoration: none;
+    color: #000;
+}
+
+.item-dashboard:hover
+{
+    color: #729c17;
+    text-decoration: none;
+}

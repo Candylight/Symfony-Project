@@ -124,8 +124,8 @@ class Event
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="participant")
      * @ORM\JoinTable(name="Participant",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="event_id", referencedColumnName="id", unique=true)}
+     *      joinColumns={@ORM\JoinColumn(name="event_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
      *      )
      */
     private $participant;

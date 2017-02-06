@@ -12,3 +12,8 @@ services:
     app.geocodingfunctions:
         class: AppBundle\Services\GeocodingFunctions
         arguments: ['%google_api_key%']
+
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }

@@ -24,6 +24,9 @@ errorPageMessage: 'Erreur'
 403pageMessage: 'Accès interdit'
 
 event:
+    updatedNotif: 'Événement modifié'
+    deletedNotif: 'Événement supprimé'
+    error: 'L''événement demandé n''existe pas'
     create:
         title: 'Titre'
         description: 'Description'
@@ -36,6 +39,13 @@ event:
     list:
         title: 'Mes événements'
         noEvent: 'Aucun événement enregistré pour le moment'
+        address: 'Adresse : '
+        participant: 'Participants'
+        date: 'Date'
+        fromDate: 'Du'
+        toDate: 'au'
+        update: 'Modifier'
+        delete: 'Supprimer'
 
 dashboard:
     title: 'Dashboard'
