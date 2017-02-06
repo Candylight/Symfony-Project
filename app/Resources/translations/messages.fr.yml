@@ -55,7 +55,7 @@ dashboard:
         manageCategories: 'Gérer les catégories'
         users: 'Chercher un utilisateur'
         map: 'Voir la carte'
-        friendList: 'Mes amis'
+        friendList: "Voir ma liste d'amis"
     home:
         title: 'Bienvenue sur votre dashboard'
         text: 'Que souhaitez-vous faire ?'
