@@ -1,25 +1,44 @@
 <div class="containerEvent">
-    <h2>{{ event.category.name }} {{ event.title }}</h2>
-    <p>
-        {{ event.description }}
-    </p>
-    <h3>{{ "event.list.date"|trans }}</h3>
-    <p>
-        {{ "event.list.fromDate"|trans }}
-        {{ event.dateStart|localizeddate('medium','short') }}
-        {{ "event.list.toDate"|trans }}
-        {{ event.dateEnd|localizeddate('medium','short') }}
-    </p>
-    <h3>{{ "event.list.address"|trans }}</h3>
-    <p>
-        {{ event.address }}, {{ event.town }}, {{ event.country }}
-    </p>
-    <h3>{{ "event.list.participant"|trans }}</h3>
-    <div class="participantsList">
-        {% for user in event.participant %}
-            <span>{{ user.username }}</span>
-        {% endfor %}
+    <div class="left">
+        <h2>{{ event.title }}</h2>
+        <div class="categorie">
+            {{ event.category.name }}
+        </div>
+        <div class="infos">
+            <h3>{{ "event.list.date"|trans }} :</h3>
+            <span>{{ "event.list.fromDate"|trans }}:</span>
+            {{ event.dateStart|localizeddate('medium','short') }}
+            <br/>
+            <span>{{ "event.list.toDate"|trans }}:</span>
+            {{ event.dateEnd|localizeddate('medium','short') }}
+        </div>
+        <div class="infos">
+            <h3>{{ "event.list.address"|trans }}</h3>
+            <span>
+                <img src="{{ asset('img/icones/cursor_map_eventlist.png') }}" alt="">
+            </span>
+            {{ event.address }}, {{ event.town }}, {{ event.country }}
+        </div>
     </div>
-    <a href="{{ path('updateEvent',{'id':event.id}) }}">{{ "event.list.update"|trans }}</a>
-    <a href="{{ path('deleteEvent',{'id':event.id}) }}">{{ "event.list.delete"|trans }}</a>
+    <div class="right">
+        <div class="infos">
+            <h3>{{ "event.list.participant"|trans }}</h3>
+            {{ event.description }}
+        </div>
+        <div class="infos">
+            <h3>{{ "event.list.participant"|trans }}</h3>
+            <div class="participantsList">
+                {% for user in event.participant %}
+                    <img src="{{ asset('img/icones/listevent_user.png') }}" alt="">
+                    <span>{{ user.username }}</span>
+                    <br/>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <a class="button" href="{{ path('updateEvent',{'id':event.id}) }}">{{ "event.list.update"|trans }}</a>
+        <a class="button" href="{{ path('deleteEvent',{'id':event.id}) }}">{{ "event.list.delete"|trans }}</a>
+
+    </div>
 </div>
