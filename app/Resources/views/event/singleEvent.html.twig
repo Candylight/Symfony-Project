@@ -1,15 +1,15 @@
-<div class="containerEvent">
+<div class="containerEvent" style="border-top:5px solid {{ event.category.color }};">
     <div class="left">
         <h2>{{ event.title }}</h2>
-        <div class="categorie">
+        <div class="categorie" style="color:{{ event.category.color }};">
             {{ event.category.name }}
         </div>
         <div class="infos">
             <h3>{{ "event.list.date"|trans }} :</h3>
-            <span>{{ "event.list.fromDate"|trans }}:</span>
+            <span style="color:{{ event.category.color }};">{{ "event.list.fromDate"|trans }}:</span>
             {{ event.dateStart|localizeddate('medium','short') }}
             <br/>
-            <span>{{ "event.list.toDate"|trans }}:</span>
+            <span style="color:{{ event.category.color }};">{{ "event.list.toDate"|trans }}:</span>
             {{ event.dateEnd|localizeddate('medium','short') }}
         </div>
         <div class="infos">
@@ -22,7 +22,7 @@
     </div>
     <div class="right">
         <div class="infos">
-            <h3>{{ "event.list.participant"|trans }}</h3>
+            <h3>{{ "event.list.description"|trans }}</h3>
             {{ event.description }}
         </div>
         <div class="infos">
@@ -37,8 +37,7 @@
         </div>
     </div>
     <div class="actions">
-        <a class="button" href="{{ path('updateEvent',{'id':event.id}) }}">{{ "event.list.update"|trans }}</a>
-        <a class="button" href="{{ path('deleteEvent',{'id':event.id}) }}">{{ "event.list.delete"|trans }}</a>
-
+        <a class="button" style="background-color:{{ event.category.color }};" href="{{ path('updateEvent',{'id':event.id}) }}">{{ "event.list.update"|trans }}</a>
+        <a class="button" style="background-color:{{ event.category.color }};" href="{{ path('deleteEvent',{'id':event.id}) }}">{{ "event.list.delete"|trans }}</a>
     </div>
 </div>

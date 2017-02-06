@@ -46,6 +46,7 @@ event:
         toDate: 'au'
         update: 'Modifier'
         delete: 'Supprimer'
+        description: 'Description'
 
 dashboard:
     title: 'Dashboard'

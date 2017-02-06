@@ -138,6 +138,7 @@
         .categoryContainer .actions a{
             display: inline-block;
             width: inherit;
+            color:white;
         }
 
 .colorSample

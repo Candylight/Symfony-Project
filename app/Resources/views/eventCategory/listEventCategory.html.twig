@@ -11,14 +11,14 @@
         {% for category in categories %}
             <div class="categoryContainer">
                 <div>
-                    <span>{{ "eventCategory.name"|trans }}:</span> {{ category.name }}
+                    <span style="color:{{ category.color }};">{{ "eventCategory.name"|trans }}:</span> {{ category.name }}
                 </div>
                 <div>
-                    <span>{{ "eventCategory.color"|trans }}:</span> <div style="background: #{{ category.color }};" class="colorSample"></div> <span class="colorSampleValue" style="color:{{ category.color }};" >{{ category.color }}</span>
+                    <span style="color:{{ category.color }};">{{ "eventCategory.color"|trans }}:</span> <div style="background: #{{ category.color }};" class="colorSample"></div> <span class="colorSampleValue" style="color:{{ category.color }};" >{{ category.color }}</span>
                 </div>
                 <div class="actions">
-                    <a class="button" href="{{ path('updateEventCategory',{'id':category.id}) }}">{{ "eventCategory.update"|trans }}</a>
-                    <a class="button" href="{{ path('deleteEventCategory',{'id':category.id}) }}">{{ "eventCategory.delete"|trans }}</a>
+                    <a class="button" style="background-color:{{ category.color }};" href="{{ path('updateEventCategory',{'id':category.id}) }}">{{ "eventCategory.update"|trans }}</a>
+                    <a class="button" style="background-color:{{ category.color }};" href="{{ path('deleteEventCategory',{'id':category.id}) }}">{{ "eventCategory.delete"|trans }}</a>
                 </div>
             </div>
         {% else %}
