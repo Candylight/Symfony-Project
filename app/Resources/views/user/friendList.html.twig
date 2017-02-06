@@ -17,7 +17,7 @@
                 <span class="name">
                     {{ friend.username }}
                 </span>
-                <a class="add-remove-button friendRemove remove-friend-from-list" href="{{ path('removeFriend',{'id':friend.id}) }}">{{ "friendList.deleteFriend"|trans }}</a>
+                <a class="add-remove-button friendRemove" style="text-decoration: none;color:black" href="{{ path('removeFriend',{'id':friend.id}) }}">{{ "friendList.deleteFriend"|trans }}</a>
             </div>
         {% else %}
             {{ "friendList.noFriends"|trans }}
