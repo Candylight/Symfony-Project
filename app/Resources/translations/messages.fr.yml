@@ -71,3 +71,4 @@ map:
     title : "Vos évenements"
     noEvent : "Pas d'évènement à afficher"
     linkToEvent : "Inviter de nouvelles personnes"
+    close : "Fermer"

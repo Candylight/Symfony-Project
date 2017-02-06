@@ -58,9 +58,45 @@
 
 #eventInfos
 {
-    display: none;
-    position: relative;
-    width: 100%;
+    position: fixed;
     height: 100%;
+    display: none;
+    width: 400px;
     background: #7a7a7a;
+    right: 0px;
+    top:0px;
+    z-index: 999;
+    text-align: center;
 }
+    #closeEventInfos{
+        margin-bottom: 15px;
+        display: inline-block;
+        font-size: 10px;
+    }
+    #eventInfos .containerEvent{
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        padding:0;
+    }
+    #eventInfos .left{
+        float: none;
+        width: 90%;
+        margin:auto;
+    }
+    #eventInfos .right{
+        float: none;
+        width: 90%;
+        margin:auto;
+    }
+    #eventInfos .containerEvent h2{
+        text-align: center;
+        margin-top:15px;
+    }
+    #eventInfos .containerEvent h3{
+        text-align: center;
+    }
+    #eventInfos .containerEvent .infos{
+        padding:10px;
+        margin:15px auto 0;
+    }
