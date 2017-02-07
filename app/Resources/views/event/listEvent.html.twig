@@ -1,5 +1,10 @@
 {% extends 'dashboard/dashboardBody.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+{% endblock %}
+
 {% block dashboardContent %}
     {{ parent() }}
     <h1>{{ "event.list.title"|trans }}</h1>
