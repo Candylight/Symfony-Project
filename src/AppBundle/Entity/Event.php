@@ -106,16 +106,6 @@ class Event
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Invitation", mappedBy="event")
-     */
-    private $invitations;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Guest", mappedBy="event")
-     */
-    private $guest;
-
-    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(name="owner", referencedColumnName="id")
      */
@@ -432,79 +422,10 @@ class Event
      */
     public function __construct()
     {
-        $this->invitations = new ArrayCollection();
         $this->dateAdd = new \DateTime();
         $this->dateUpd = new \DateTime();
         $this->dateStart = new \DateTime();
         $this->dateEnd = new \DateTime();
-    }
-
-    /**
-     * Add invitation
-     *
-     * @param Invitation $invitation
-     *
-     * @return Event
-     */
-    public function addInvitation(Invitation $invitation)
-    {
-        $this->invitations[] = $invitation;
-
-        return $this;
-    }
-
-    /**
-     * Remove invitation
-     *
-     * @param Invitation $invitation
-     */
-    public function removeInvitation(Invitation $invitation)
-    {
-        $this->invitations->removeElement($invitation);
-    }
-
-    /**
-     * Get invitations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getInvitations()
-    {
-        return $this->invitations;
-    }
-
-    /**
-     * Add guest
-     *
-     * @param Guest $guest
-     *
-     * @return Event
-     */
-    public function addGuest(Guest $guest)
-    {
-        $this->guest[] = $guest;
-
-        return $this;
-    }
-
-    /**
-     * Remove guest
-     *
-     * @param \AppBundle\Entity\Guest $guest
-     */
-    public function removeGuest(Guest $guest)
-    {
-        $this->guest->removeElement($guest);
-    }
-
-    /**
-     * Get guest
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGuest()
-    {
-        return $this->guest;
     }
 
     /**
